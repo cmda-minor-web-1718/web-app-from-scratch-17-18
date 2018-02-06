@@ -3,6 +3,7 @@ The course repo for 'Web App From Scratch'
 
 ## Advantages and disadvantages of JavaScript libraries/frameworks
 ![Framework Joke][coverlibrarie]
+
 _Framework:_
 JavaScript libraries are collections of pre-written JavaScript which in turn all perform certain separate functions. They can be used for the development of other JavaScript without the developer having to write his own JavaScript for the functions the library provides him with.
 
