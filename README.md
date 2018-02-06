@@ -29,7 +29,7 @@ A library is an unopinionated piece of software which implements a certain funct
 ![Frameworkcons][coverframeworkcons]
 
 [coverlibrarie]: previewlibrarie.jpg
-[coverframeworkcons]: frameworkcons.jpg
+[coverframeworkcons]: frameworkcons.png
 
 ## Advantages and disadvantages of client-side single page web apps
 ...
