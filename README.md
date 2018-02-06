@@ -26,7 +26,7 @@ A library is an unopinionated piece of software which implements a certain funct
 - Editing — The framework’s core behavior can’t be modified, meaning that when you use a framework, you are forced to respect its limits and work the way it is required.
 - Bugs —  a bug within a library can be difficult to locate and fix.
 
-[coverlibrarie]: previewlibrarie.png
+[coverlibrarie]: previewlibrarie.jpg
 
 ## Advantages and disadvantages of client-side single page web apps
 ...
