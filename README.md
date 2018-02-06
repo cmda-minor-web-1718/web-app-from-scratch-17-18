@@ -31,6 +31,15 @@ A library is an unopinionated piece of software which implements a certain funct
 [coverlibrarie]: previewlibrarie.jpg
 [coverframeworkcons]: frameworkcons.png
 
+**Sources:**
+*  https://hashnode.com/post/vanilla-javascript-vs-frameworks-and-libraries-finding-a-good-balance-civ1zfus90pphdc53q8vtakz5
+*  https://hackernoon.com/5-best-javascript-frameworks-in-2017-7a63b3870282
+*  https://www.khanacademy.org/computing/computer-programming/html-css-js/using-js-libraries-in-your-webpage/a/the-world-of-js-libraries
+*  https://www.giftofspeed.com/dont-use-javascript-libraries/
+*  https://davidwalsh.name/6-reasons-to-use-javascript-libraries-frameworks
+*  https://www.noupe.com/development/javascript-frameworks-94897.html
+*  https://1stwebdesigner.com/web-frameworks/
+
 ## Advantages and disadvantages of client-side single page web apps
 ...
 
