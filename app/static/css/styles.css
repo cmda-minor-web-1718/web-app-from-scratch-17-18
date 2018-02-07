@@ -1,0 +1,56 @@
+/* Reset and initialise some values for the body */
+body {
+  margin: 0;
+  /*Compensate with nav*/
+  padding: 3em 0 0 0;
+}
+nav {
+  height: 3em;
+  background: black;
+  box-sizing: border-box;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  position: top;
+  top: 0;
+}
+nav a {
+  display: block;
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+  color: black;
+  padding: 0.5em;
+  margin-right: 0.2em;
+  text-decoration:none;
+  font-size: 20px;
+  background: rgba(255,255,255,0.9);
+}
+.basic-section {
+  background: whitesmoke;
+  margin-top: 2em;
+  min-height: 20em;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.basic-section h3 {
+  margin: 0;
+  padding: 0;
+}
+.hide {
+  display: none;
+}
+.show-block {
+  display: block;
+}
+ul {
+  box-sizing: border-box;
+  margin: 2em;
+  padding: 2em;
+  background: #ccc;
+  overflow: hidden;
+  list-style: square;
+}
+ul li {
+  margin-top: 1em;
+}
