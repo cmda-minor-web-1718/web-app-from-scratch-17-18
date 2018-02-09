@@ -1,0 +1,27 @@
+body{
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.none{
+  display: none;
+}
+
+footer{
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+footer ul{
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  list-style-type: none;
+}
+
+footer ul a{
+  text-decoration: none;
+  color: black;
+}
