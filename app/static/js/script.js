@@ -25,8 +25,9 @@ console.log('global scope');
     var sections = {
     toggle:function(route){
       console.log(route);
-      for (var i = 0; i < document.querySelectorAll("section").length; i++) {
-        document.querySelectorAll("section")[i].classList.add("none")
+      var section = document.querySelectorAll("section");
+      for (var i = 0; i < section.length; i++) {
+        section[i].classList.add("none")
       }
       document.querySelector(route).classList.remove("none")
     }
