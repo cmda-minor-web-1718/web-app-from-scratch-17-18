@@ -1,5 +1,7 @@
 # wafs
-The course repo for 'Web App From Scratch'
+The course repo for 'Web App From Scratch
+
+The link to the live prototype is http://rickbuter.nl/wafs
 
 Note: FoL = Frameworks or Libraries
 
