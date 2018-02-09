@@ -1,5 +1,9 @@
 {
   "name": "wafs",
+  "xo": {
+		"space": true,
+    "envs": ["browser"]
+	},
   "version": "1.0.0",
   "description": "## GitHub repository opzetten voor het vak",
   "main": "index.js",
