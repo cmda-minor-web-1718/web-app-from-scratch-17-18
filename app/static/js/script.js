@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+{ // Use ES6 IIFE
   const sections = {
     toggle: route => {
       console.log('Toggle in sections object fired');
@@ -36,4 +36,4 @@
   };
 
   app.init();
-})();
+}

@@ -1,45 +1,37 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Web app from scratch</title>
-    <link rel="stylesheet" type="text/css" href="static/css/styles.css" />
-    <script src='static/js/script.js'></script>
-</head>
+  <head>
+      <meta charset="utf-8">
+      <title>Web app from scratch</title>
+      <link rel="stylesheet" type="text/css" href="static/css/styles.css" />
+      <script src='static/js/script.js'></script>
+  </head>
 
-<body>
-    <nav>
-      <a href="#best-practices">Section 1</a>
-      <a href="#section2">Section 2</a>
-    </nav>
-    <header>
-
+  <body>
+    <header> <!-- Put nav in header [suggestion/optional] -->
+      <nav>
+        <!-- Use list for menu [best practice] -->
+        <ul>
+          <li><a href="#best-practices">Section 1</a></li>
+          <li><a href="#section2">Section 2</a></li>
+        </ul>
+      </nav>
     </header>
     <section id="best-practices" class="basic-section best-practices hide">
         <ul>
           <h3>Best Practices</h1>
-          <li>
-            Single responsibility principle
-          </li>
-          <li>
-            Open closed principle
-          </li>
-          <li>
-            Liskov substitution principle
-          </li>
-          <li>
-            Interface segregation principle
-          </li>
-          <li>
-            Dependency Inversion principle
-          </li>
+          <li>Single responsibility principle</li>
+          <li>Open closed principle</li>
+          <li>Liskov substitution principle</li>
+          <li>Interface segregation principle</li>
+          <li>Dependency Inversion principle</li>
         </ul>
     </section>
 
     <section id="section2" class="basic-section hide">
-
+      
     </section>
-</body>
+  </body>
 
 </html>

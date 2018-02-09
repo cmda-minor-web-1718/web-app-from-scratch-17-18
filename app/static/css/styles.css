@@ -2,7 +2,7 @@
 body {
   margin: 0;
   /*Compensate with nav*/
-  padding: 3em 0 0 0;
+  padding: 3em 0 0; /* Top Right Bottom Left -> You can skip the Left if === Right */
 }
 nav {
   height: 3em;
