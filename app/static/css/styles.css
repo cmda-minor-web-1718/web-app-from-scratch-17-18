@@ -5,14 +5,17 @@ body {
   padding: 3em 0 0; /* Top Right Bottom Left -> You can skip the Left if === Right */
 }
 nav {
-  height: 3em;
+  /* height: 3em; */
   background: black;
   box-sizing: border-box;
-  position: fixed;
-  overflow: hidden;
+  /* position: fixed; */
+  /* overflow: hidden; */
   width: 100%;
   position: top;
   top: 0;
+}
+nav ul {
+  list-style: none;
 }
 nav a {
   display: block;
