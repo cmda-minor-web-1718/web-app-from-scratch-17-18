@@ -11,24 +11,29 @@
       <h1>Start</h1>
       <p>welcome to my first route project.</p>
     </section>
-    <section id="bp" class="none">
-      <h1>Front end best practises</h1>
-      <p>Don't use global variables/objects</p>
-      <p>Declare variables at top of scope</p>
-      <p>Use short clear meaningful names (English)</p>
-      <p>Work in strict mode</p>
-      <p>camelCase your code if(code != Constructor || CONSTANTS)</p>
-      <p>Place external scripts at the bottom of the page</p>
-      <p>Indent your code</p>
+    <section id="movies" class="none">
+      <h1>Movie reviews</h1>
+      <ul id="activities">
+        <li><a class="display_title" data-bind="film_id"></a></li>
+      </ul>
+    </section>
+    <section id="moviemain" class="none">
+      <h1 data-bind='Title'>
+        test
+      </h1>
+      <img data-bind='image' alt="">
+      <p data-bind='Plot'></p>
     </section>
     <footer>
       <nav>
         <ul>
           <a href="#start"><li>Start</li></a>
-          <a href="#bp"><li>BP</li></a>
+          <a href="#movies"><li>movies</li></a>
         </ul>
       </nav>
     </footer>
+  <script src="static/js/transparency.min.js"></script>
+  <script src="static/js/routie.js"></script>
   <script src="static/js/script.js"></script>
   </body>
 </html>
