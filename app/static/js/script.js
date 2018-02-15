@@ -1,33 +1,140 @@
 (function() {
-	'use strict';
+	'use strict'
+
+	const elStart = document.querySelector('#start'),
+		elPokemon = document.querySelector('#pokemon'),
+		elPokemonList = document.querySelector('.pokemon-list'),
+		template = document.querySelector('.template'),
+		data = {},
+		newData = {}
+	let obj = {},
+		newObj = {}
+
 	// Initialize appliciation
-  	var app = {
+  	const app = {
+		
 		init: function() {
-			location.hash && sections.toggle(location.hash)
-			routes.init();
+			
+			const request = new XMLHttpRequest()
+			request.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/?limit=151', true)
+
+			request.onload = function() {
+
+				if (request.status >= 200 && request.status < 400) {
+
+					this.data = JSON.parse(request.responseText)
+					const pokemon = this.data.results
+						
+					for(var i = 0; i < pokemon.length; i++) {
+						const obj = pokemon[i]
+						
+						const pokemonListItem = document.createElement('li'),
+							elPokemonLink = document.createElement('a'),
+							name = document.createTextNode(obj.name)
+
+						pokemonListItem.appendChild(elPokemonLink)
+						elPokemonLink.setAttribute('href', '#' + obj.name)
+						elPokemonLink.appendChild(name)
+						elPokemonList.appendChild(pokemonListItem)
+						pokemonListItem.className = 'pokemon'
+
+						routie(obj.name, function() {
+							const newRequest = new XMLHttpRequest()
+							newRequest.open('GET', obj.url, true)
+
+							newRequest.onload = function() {
+
+								if (newRequest.status >= 200 && newRequest.status < 400) {
+									
+									this.newData = JSON.parse(newRequest.responseText)
+									const pokemonImages = this.newData.sprites,
+										pokemonInfo = this.newData,
+										pokeInfo = {
+											name: pokemonInfo.name,
+											height: 'Height: ' + pokemonInfo.height / 10 + ' meter',
+											weight: 'Weight: ' + pokemonInfo.weight / 10 + ' kilogram',
+											statsHP: 'HP: ' + pokemonInfo.stats[5].base_stat,
+											statsDef: 'Defense: ' + pokemonInfo.stats[3].base_stat,
+											statsAtt: 'Attack: ' + pokemonInfo.stats[4].base_stat,
+											statsSpeed: 'Speed: ' + pokemonInfo.stats[0].base_stat,
+											statsSpDef: 'Special Defense: ' + pokemonInfo.stats[1].base_stat,
+											statsSpAtt: 'Special Attack: ' + pokemonInfo.stats[2].base_stat,							
+											
+									}
+
+									console.log(pokemonInfo)
+
+									if (pokemonInfo.types.length > 1) {
+										document.querySelector('.type1').innerHTML = "Type: " + pokemonInfo.types[0].type.name + " & "
+										document.querySelector('.type2').innerHTML = pokemonInfo.types[1].type.name
+									} else {
+										document.querySelector('.type1').innerHTML = "Type: " + pokemonInfo.types[0].type.name
+										document.querySelector('.type2').innerHTML = ""
+									}
+
+									document.querySelector('.sprite_front').setAttribute('src', pokemonInfo.sprites.front_default)
+									document.querySelector('.sprite_back').setAttribute('src', pokemonInfo.sprites.back_default)
+									document.querySelector('.sprite_shiny_front').setAttribute('src', pokemonInfo.sprites.front_shiny)
+									document.querySelector('.sprite_shiny_back').setAttribute('src', pokemonInfo.sprites.back_shiny)
+									
+									Transparency.render(template, pokeInfo)
+								}
+							}
+							newRequest.onerror = function() {
+							console.log('het werkt niettttt')
+						}
+						newRequest.send();
+							
+					})
+
+				}
+			} else {					
+				console.log('het werkt niet pik')
+			}
+
+		} 
+		request.onerror = function() {
+		console.log('er hing iets niet helemaal lekker')
+		}
+	
+		request.send()
+		routes.init()
 			// Global app stuff
 		}
 	}
+
 	// Handle routes and states
-	var routes = {
+	const routes = {
 		init: function() {
-			window.addEventListener( 'hashchange', () => {
-				// What's the hash?
-				sections.toggle(location.hash);
-			} )
+			routie({
+				'start': function() {
+					sections.start();
+				},
+
+				'pokemon': function() {
+					sections.pokemon();
+				}
+			})
 		}
 	}
 	// Render / toggle sections
-	var sections = {
-		toggle: function(route) {
-			document.querySelectorAll('section').forEach((section) => {
-				section.classList.add('no-display')
-			});
+	const sections = {
 
-		document.querySelector(route).classList.remove('no-display')
-			// Toggle this particular section
+		start: function() {
+			elStart.classList.remove('no-display')
+			elPokemon.classList.add('no-display')
+		},
+
+		pokemon: function() {
+			elPokemon.classList.remove('no-display')
+			elStart.classList.add('no-display')
 		}
 	}
 	// Start Application
-	app.init();
+	app.init()
 })()
+
+
+
+// pokemonInfo.types.map( el => el.type.name ).forEach(i => {
+// 	type: return i

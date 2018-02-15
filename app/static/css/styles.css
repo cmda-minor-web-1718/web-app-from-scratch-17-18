@@ -59,7 +59,8 @@ main {
     margin: 0 1em;
 }
 
-section div {
+section > div,
+#pokemon {
     display: grid;
     grid-template-columns: 100%;
 }
@@ -69,7 +70,15 @@ section div p {
 }
 
 .no-display {
-    display: none;
+    display: none !important;
+}
+
+.types {
+    display: block;
+}
+
+.types p {
+    display: inline;
 }
 
 header nav ul {
@@ -83,6 +92,14 @@ header nav ul li a {
     border-bottom: solid black 1px;
     padding-bottom: .2em;
     font-size: 20px;
+}
+
+.pokemon::first-letter {
+    text-transform: uppercase;
+}
+
+.pokemon {
+    margin: .4em 0;
 }
 
 header nav ul li a:hover {
@@ -123,12 +140,18 @@ p {
     line-height: 1.6em;
 }
 
+.name::first-letter {
+    text-transform: uppercase;
+}
+
 @media screen and (min-width: 45em) {
     main {
         margin: 0 2em;
+        margin-top: 5em;
     }
 
-    section div {
+    section > div,
+    #pokemon {
         grid-template-columns: 48% 48%;
         grid-column-gap: 4%;
     }
@@ -138,9 +161,17 @@ p {
         padding: 1em 0;
         max-width: 100vw;
         position: inherit;
+        position: fixed;
+        top: 0;
+        bottom: auto;
     }
 
     header nav ul li a {
         font-size: 16px;
+    }
+
+    .template {
+        position: fixed;
+        right: 20em;
     }
 }
