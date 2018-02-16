@@ -55,7 +55,7 @@ console.log('global scope');
         'movies': function() {
           console.log('start')
           sections.toggle(window.location.hash)
-        },
+        }, // Thanks to Mo
         'movies/?:name': function(name) {
           console.log(name)
           sections.toggle(name)
