@@ -7,6 +7,7 @@ The link to the live prototype is https://rick712.github.io/wafs/app/index.html
 
 ## Functionality of the website
 On the website, you can choose a particular Pokémon, and you will get some information about that Pokémon. The website achieves this by using PokéApi: https://www.pokeapi.co/ .
+
 First it makes an API call to the root of the API where all the names and the URL of the Pokémon are stored. The web app puts all the names in a list. When a user clicks on a Pokémon, the URL of the Pokémon is given to another API call, that retrieves more information about that Pokemon, and shows it to the user.
 
 ## Micro libraries
