@@ -132,8 +132,33 @@ Because my first API didn't had much unformation, I searched for a second API. T
           } )
 ```
 
-I had trouble with this, so I asked my good friend Mo to help me out with this. We did it with ES6, because this was the most easy and fastest way to produce it. The api will be fetched and I gather the plot info and the poster.
+I had trouble with this, so I asked my good friend Mo to help me out with this. We did it with ES6, because this was the most easy and fastest way to produce it. The api will be fetched and I gather the plot info and the poster. With the information gathered I splitted the Javascript into multiple modules. This is easier to find your code and reads better. The next thing I did was thinking about what will happen in the case of no Wi Fi. There would be no information to display. I solved this by using a localstorage. This will save the data from the API for use in a offline environment. I did it by doing:
+
+```javascript
+    var localStorageData = {
+  setItem: function(data){
+    localStorage.setItem('filmdata', JSON.stringify(data))
+  },
+  getItem: function(){
+    if (JSON.parse(localStorage.getItem('filmdata')) !=null ) {
+      console.log('filmdata bestaat')
+      this.use()
+    }
+  else{
+    console.log('geen filmdata')
+  }
+  },
+  use: function(){
+    var savedata = JSON.parse(localStorage.getItem('filmdata'))
+    sections.render(savedata)
+  }
+}
+```
+
+This will collect the data and set the data in a object. If the data is available it will be used.
+After this was done all I did was clean the code.
 
 ### What am I most proud of?
+Actually coming this far is what I'm most proud of.
 
 ### What do I find most disappointing
