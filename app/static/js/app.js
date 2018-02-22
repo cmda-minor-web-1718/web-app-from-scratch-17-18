@@ -1,4 +1,4 @@
-import api from './api.js'
+// import api from './api.js'
 import routes from './routes.js'
 import localStorageData from './localstorage.js'
 console.log('global scope');

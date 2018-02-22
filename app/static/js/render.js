@@ -24,7 +24,7 @@ var sections = {
     };
     console.log(dataFilm);
     console.log(movies);
-    var target = document.getElementById('activities');
+    var target = document.getElementById('movielist');
     Transparency.render(target, dataFilm, movies);
     var target = document.getElementById('movieDetail');
 
