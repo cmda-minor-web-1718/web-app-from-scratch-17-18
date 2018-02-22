@@ -41,9 +41,6 @@ A library is an unopinionated piece of software which implements a certain funct
 *  https://www.noupe.com/development/javascript-frameworks-94897.html
 *  https://1stwebdesigner.com/web-frameworks/
 
-## Advantages and disadvantages of client-side single page web apps
-...
-
 ## Best practices - Movie App
 
 for the assignment we had to make a single page web app. The subject I chose was movies. The plan I came up with was making 2 pages. A start page that explains what my website does. A second page that shows the movies from the API I'm using (the New York Times Movie APA). And a detail page that shows the individual movie with plot summary and poster from the movie.
@@ -81,7 +78,61 @@ var routes = {
       }
 ```
 
-In my routie I also call for the Api (the New York Times ). The API Key is also activated when this happens. I also sort the data from the API. This will give a more pleasant use for the user. After the API has been succesfully called, it was time for the data to display into my HTML. This was done by using a templating tool. Transparancy. This will collect the data from the API and it will let me place it. 
+In my routie I also call for the Api (the New York Times ). The API Key is also activated when this happens. I also sort the data from the API. This will give a more pleasant use for the user. After the API has been succesfully called, it was time for the data to display into my HTML. This was done by using a templating tool. Transparancy. This will collect the data from the API and it will let me place it. For the transparancy I used a map function. This will let collect the data and place it into a by my giving name.
+
+```javascript
+   var sections = {
+  render: function(data) {
+
+    let dataFilm = data.map(function(i) { // Map function thanks to Keving Wang and Oy
+      return {
+        display_title: i.display_title.replace(/ /g, "_")
+      }
+    });
+
+    let movies = {
+      display_title: {
+        href: function(params) {
+          return `/#movies/${this.display_title}`
+        },
+        headline: {
+          class: function(params) {
+            return this.headline
+          }
+        }
+      } 
+```
+
+This was also really usefull for my detail page. This page must show the title, plot and a poster from the movie. Unfortunately, my API didn't had that much information. This was really dissapointing, but more about that later. In the let datafilm I bind the data with the by my chosen name. I also replace white space with a underscore. This must be done so the URL will be displayed correctly.
+
+### A second API?
+Because my first API didn't had much unformation, I searched for a second API. The one I found was Omdbapi. This one had more (usefull) info. I called the data from this API in my routie. When the ID (title from the movie) is being used, the API will set that ID in his search. The page that will be shown is the information from the movie. How I used it was doing the following:
+
+```javascript
+      'movies/?:name': function(name) {
+        console.log(name)
+        sections.toggle(name)
+        document.getElementById('moviemain').classList.remove('none');
+        var names = name
+
+        fetch(`http://www.omdbapi.com/?t=${names}&apikey=b0b13f21`)
+          .then( res => {
+            return res.json()
+          } )
+          .then( res => {
+            console.log( res )
+            var directives = {
+              image: {
+                src: function() {
+                  return `${this.Poster}`
+                }
+              }
+            }
+            Transparency.render(document.querySelector('#moviemain'), res, directives);
+          } )
+```
+
+I had trouble with this, so I asked my good friend Mo to help me out with this. We did it with ES6, because this was the most easy and fastest way to produce it. The api will be fetched and I gather the plot info and the poster.
 
 ### What am I most proud of?
 
