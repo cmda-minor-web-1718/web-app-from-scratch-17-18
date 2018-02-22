@@ -159,6 +159,7 @@ This will collect the data and set the data in a object. If the data is availabl
 After this was done all I did was clean the code.
 
 ### What am I most proud of?
-Actually coming this far is what I'm most proud of.
+Actually coming this far is what I'm most proud of. It was really difficult, but I didn't give up. I asked for a lot of help and I dived into the code.
 
 ### What do I find most disappointing
+What I did find most disappointing was my lack of skill. I had to ask for help A LOT of times and I felt bad about it. I need to improve my own skill.
