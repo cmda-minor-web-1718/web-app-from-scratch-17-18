@@ -44,5 +44,45 @@ A library is an unopinionated piece of software which implements a certain funct
 ## Advantages and disadvantages of client-side single page web apps
 ...
 
-## Best practices
-...
+## Best practices - Movie App
+
+for the assignment we had to make a single page web app. The subject I chose was movies. The plan I came up with was making 2 pages. A start page that explains what my website does. A second page that shows the movies from the API I'm using (the New York Times Movie APA). And a detail page that shows the individual movie with plot summary and poster from the movie.
+
+### How was my progress?
+It was really difficult to start. Lucky for me, the teacher helped me and other students with a basic set up. This helped me understand the basic structure. From here I started adding more functionalities. The first one was making sure the the route will work. It has to be all on one page. I made everything in sections. The sections must not be visible, unless the section is active. I did this by making a loop that will check every section and is looking for the class that must set is.
+
+```javascript
+    for (var i = 0; i < document.querySelectorAll("section").length; i++) {
+      document.querySelectorAll("section")[i].classList.add("none")
+    }
+    if (document.querySelector(route)) {
+      document.querySelector(route).classList.remove("none")
+    } else {
+      return
+    }
+```
+
+After the loop the next task was to use a Routie to correctly. The Routie will handle the routing of the page. This was fairly easy to do. There was a lot of documentation on it online. My basic Routie is:
+
+```javascript
+var routes = {
+  init() {
+    routie({
+      'start': function() {
+        console.log('test')
+        sections.toggle(window.location.hash)
+      },
+      'movies': function() {
+        console.log('start')
+        api.call('https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=3d8eafd7eaf04aa6a1493eaa050714a7').then(function(data){
+          sections.render(data.results.sort((a, b) => a.display_title.localeCompare(b.display_title)))
+        })
+        sections.toggle(window.location.hash)
+      }
+```
+
+In my routie I also call for the Api (the New York Times ). The API Key is also activated when this happens. I also sort the data from the API. This will give a more pleasant use for the user. After the API has been succesfully called, it was time for the data to display into my HTML. This was done by using a templating tool. Transparancy. This will collect the data from the API and it will let me place it. 
+
+### What am I most proud of?
+
+### What do I find most disappointing
