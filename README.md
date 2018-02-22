@@ -31,6 +31,7 @@ A library is an unopinionated piece of software which implements a certain funct
 
 [coverlibrarie]: previewlibrarie.jpg
 [coverframeworkcons]: frameworkcons.png
+[visualflow]: visualflow.jpg
 
 **Sources:**
 *  https://hashnode.com/post/vanilla-javascript-vs-frameworks-and-libraries-finding-a-good-balance-civ1zfus90pphdc53q8vtakz5
@@ -157,6 +158,9 @@ I had trouble with this, so I asked my good friend Mo to help me out with this. 
 
 This will collect the data and set the data in a object. If the data is available it will be used.
 After this was done all I did was clean the code.
+
+### Visual flow
+![Visual flow][visualflow]
 
 ### What am I most proud of?
 Actually coming this far is what I'm most proud of. It was really difficult, but I didn't give up. I asked for a lot of help and I dived into the code.
