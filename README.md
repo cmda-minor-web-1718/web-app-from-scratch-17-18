@@ -17,3 +17,6 @@ Transparency js: https://github.com/leonidas/transparency
 Routie: https://github.com/jgallen23/routie
 
 Transparency let's you render certain parts of your website based on data in an object, and Routie makes it easy to toggle area's based on hash change.
+
+## Flow 
+![flow of the app](https://imgur.com/7EIoVXa)
