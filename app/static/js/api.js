@@ -6,9 +6,9 @@ const template = document.querySelector('.template'),
     newData = {},
     elPokemonList = document.querySelector('.pokemon-list')
 let obj = {},
-	newObj = {}
+	newObj = {} // JS declared de variables boven aan de scope
 
-const api = {
+const api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo method,
     call: function() {
             const request = new XMLHttpRequest()
             request.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/?limit=151', true)
@@ -25,13 +25,15 @@ const api = {
                     api.makeList(pokemon);
                     api.orderPokemon(pokemon)
 
+                    // closure is een functie in een functie waar de parent functie nog steeds bij de child functie kan
+
                     const loading = document.querySelector('.loading')
                     loading.style.display = "none"
                 }	
             }
             request.onerror = function() {
                 const loading = document.querySelector('.error')
-                    loading.style.display = "block"
+                    loading.style.display = "block" // callback voor als er wat fout gaat
             }
 
             request.timeout = function() {

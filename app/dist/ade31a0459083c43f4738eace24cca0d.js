@@ -9,5 +9,5 @@ var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(n){re
 },{"./sections":19,"./routie":9}],13:[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./api"),t=i(e),r=require("./routes"),u=i(r);function i(e){return e&&e.__esModule?e:{default:e}}var a={init:function(){t.default.call(),u.default.init()}};exports.default=a;
 },{"./api":15,"./routes":16}],10:[function(require,module,exports) {
-"use strict";var e=require("./app"),t=n(e);function n(e){return e&&e.__esModule?e:{default:e}}!function(){var e=document.querySelector(".template"),n=document.querySelector(".template a");document.querySelector(".pokemonlink").addEventListener("click",function(){e.classList.remove("showPokemon")}),n.addEventListener("click",function(){e.classList.remove("showPokemon")}),t.default.init()}();
+"use strict";var e=require("./app"),t=o(e);function o(e){return e&&e.__esModule?e:{default:e}}!function(){"strict mode";var e=document.querySelector(".template"),o=document.querySelector(".template a");document.querySelector(".pokemonlink").addEventListener("click",function(){e.classList.remove("showPokemon")}),o.addEventListener("click",function(){e.classList.remove("showPokemon")}),t.default.init()}();
 },{"./app":13}]},{},[10])
