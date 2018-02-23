@@ -3,7 +3,7 @@ The course repository for 'Web App From Scratch'
 
 The goal from this course is to make a web app from scratch, only using pure HTML/CSS/JS without any big framework or library.
 
-The link to the live prototype is https://rick712.github.io/wafs/app/index.html
+The link to the live prototype is https://rick712.github.io/wafs/app/dist/
 
 For this project I used Parcel to run a local server.
 
