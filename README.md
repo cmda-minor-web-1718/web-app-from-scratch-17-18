@@ -27,3 +27,9 @@ Transparency let's you render certain parts of your website based on data in an 
 ## Interaction 
 
 ![Interaction between user and web app](https://i.imgur.com/bSCkN7G.png)
+
+
+## Wishlist
+- Filter on type
+- Better styling
+- Navigate to next and previous evolution stage
