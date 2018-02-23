@@ -5,6 +5,8 @@ The goal from this course is to make a web app from scratch, only using pure HTM
 
 The link to the live prototype is https://rick712.github.io/wafs/app/index.html
 
+For this project I used Parcel to run a local server.
+
 ## Functionality of the website
 On the website, you can choose a particular Pokémon, and you will get some information about that Pokémon. The website achieves this by using PokéApi: https://www.pokeapi.co/ .
 
@@ -18,7 +20,7 @@ Routie: https://github.com/jgallen23/routie
 
 Transparency let's you render certain parts of your website based on data in an object, and Routie makes it easy to toggle area's based on hash change.
 
-## Flow 
+## Object methods 
 ![flow of the app](https://i.imgur.com/7EIoVXa.png)
 
 
