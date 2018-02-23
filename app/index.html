@@ -11,7 +11,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Start</a></li>
+                <li><a href="#start">Start</a></li>
                 <li><a href="#pokemon" class="pokemonlink">Pokémon</a></li>
             </ul>
         </nav>
@@ -29,6 +29,20 @@
         <div id="pokemon" class="no-display">
             <div>
                 <h1>Pokémon</h1>
+
+                <form>
+                    <input class="input" type="text">
+                    <a class="button">Search Pokémon</a>
+                </form>
+
+                <div class="loading">
+                    <p>Loading list</p>
+                </div>
+
+                <div class="error">
+                    <p>An error has occured. Please check your internet connection and try again.</p>
+                </div>
+
                 <ul class="pokemon-list">
                 </ul>
             </div>
@@ -67,8 +81,8 @@
     <footer>
 
     </footer>
-    <script src="static/js/transparency.js"></script>
-    <script src="static/js/routie.js"></script>
-    <script src="static/js/script.js"></script>
+    <script src="./static/js/transparency.js"></script>
+    <script src="./static/js/routie.js"></script>
+    <script type="module" src="./static/js/script.js"></script>
 </body>
 </html>
