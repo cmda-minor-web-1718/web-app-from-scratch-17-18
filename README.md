@@ -20,3 +20,5 @@ Transparency let's you render certain parts of your website based on data in an 
 
 ## Flow 
 ![flow of the app](https://i.imgur.com/7EIoVXa.png)
+
+![Interaction between user and web app](https://i.imgur.com/bSCkN7G.png)
