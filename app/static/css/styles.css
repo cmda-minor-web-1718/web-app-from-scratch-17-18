@@ -51,12 +51,9 @@ table {
             OWN CODE
 ================================*/
 
-body {
-    background-color:rgb(255, 252, 213);
-}
-
 main {
     margin: 0 1em;
+    margin-top: 30em;
 }
 
 section > div,
@@ -67,6 +64,11 @@ section > div,
 
 section div p {
     margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 55px;
+    font-weight: 700;
 }
 
 .no-display {
@@ -83,15 +85,15 @@ section div p {
 
 header nav ul {
     display: flex;
-    justify-content: space-around;
 }
 
 header nav ul li a {
     color: white;
     transition: all .4s ease;
-    border-bottom: solid black 1px;
+    border-bottom: solid rgb(49, 49, 49) 1px;
     padding-bottom: .2em;
     font-size: 20px;
+    margin-left: 2rem;
 }
 
 .pokemon::first-letter {
@@ -103,17 +105,17 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    border-bottom: solid red 2px;
+    border-bottom: solid rgb(255, 255, 255) 2px;
 }
 
 header nav {
-    width: 100vw;
+    width: 30vw;
 }
 
 header {
-    background-color: black;
+    background-color: rgb(49, 49, 49);
     padding: 2em 0;
-    max-width: 100vw;
+    width: 100vw;
     position: fixed;
     bottom: 0;
     z-index: 2;
@@ -129,12 +131,14 @@ p,
 a,
 li {
     font-family: sans-serif;
+    color: rgb(49, 49, 49);
 }
 
 h1 {
-    font-size: 45px;
+    font-size: 80px;
     font-weight: 700;
-    margin: .5em 0;
+    text-align: center;
+    margin-bottom: 1em;
 }
 
 p {
@@ -181,7 +185,9 @@ p {
 
 .gone {
     display: none;
+    visibility: hidden;
 }
+
 .loading,
 .error {
     margin: 0 auto;
@@ -218,7 +224,7 @@ p {
 @media screen and (min-width: 50rem) {
     main {
         margin: 0 2em;
-        margin-top: 5em;
+        margin-top: 15em;
     }
 
     .template a {
@@ -232,7 +238,6 @@ p {
     }
 
     header {
-        background-color: black;
         padding: 1em 0;
         max-width: 100vw;
         position: inherit;

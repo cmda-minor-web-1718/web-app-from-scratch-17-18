@@ -10,6 +10,7 @@ let obj = {},
 	newObj = {} // JS declared de variables boven aan de scope
 
 const api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo method,
+    
     call: function() {
         const request = new XMLHttpRequest()
         request.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/?limit=151', true)
@@ -20,7 +21,7 @@ const api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo 
 
                 this.data = JSON.parse(request.responseText)
                 const pokemon = this.data.results
-                api.makeList(pokemon);
+                order.makeList(pokemon);
                 order.pokemon(pokemon)
 
                 // closure is een functie in een functie waar de parent functie nog steeds bij de child functie kan
@@ -42,41 +43,16 @@ const api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo 
         request.send()
     },
 
-    makeList: function(pokemon) {
-
-        pokemon.forEach(function(i) {
-            obj = i
-            const pokemonListItem = document.createElement('li'),
-                elPokemonLink = document.createElement('a'),
-                name = document.createTextNode(obj.name)
-
-            pokemonListItem.appendChild(elPokemonLink)
-            elPokemonLink.setAttribute('href', obj.name)
-            elPokemonLink.appendChild(name)
-            elPokemonList.appendChild(pokemonListItem)
-            pokemonListItem.className = 'pokemon'
-            
-            routie(obj.name, function() {
-                console.log(window.location.hash.split('#')[1])
-                api.openPokemonInfo(obj)
-            })
-        })
-    },
-
     openPokemonInfo: function(obj) {
-        const pokeHash = window.location.hash.split('#')[1]
         const newRequest = new XMLHttpRequest()
-        newRequest.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/' + pokeHash, true)
+        newRequest.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/' + obj, true)
 
         newRequest.onload = function() {
 
-            console.log(newRequest.status)
-
         if (newRequest.status >= 200 && newRequest.status < 400) {
-            
-            console.log(newRequest.status)
                     
             this.newData = JSON.parse(newRequest.responseText)
+
             const pokemonImages = this.newData.sprites,
                 pokemonInfo = this.newData,
                 pokeInfo = {
@@ -88,27 +64,45 @@ const api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo 
                     statsAtt: 'Attack: ' + pokemonInfo.stats[4].base_stat,
                     statsSpeed: 'Speed: ' + pokemonInfo.stats[0].base_stat,
                     statsSpDef: 'Special Defense: ' + pokemonInfo.stats[1].base_stat,
-                    statsSpAtt: 'Special Attack: ' + pokemonInfo.stats[2].base_stat,							
-                }	
+                    statsSpAtt: 'Special Attack: ' + pokemonInfo.stats[2].base_stat,
+                },	
 
-                if (pokemonInfo.types.length > 1) {
-                    document.querySelector('.type1').innerHTML = "Type: " + pokemonInfo.types[0].type.name + " & "
-                    document.querySelector('.type2').innerHTML = pokemonInfo.types[1].type.name
-                } else {
-                    document.querySelector('.type1').innerHTML = "Type: " + pokemonInfo.types[0].type.name
-                    document.querySelector('.type2').innerHTML = ""
+            sprites = {
+                front_default: {
+                    src: function src() {
+                        return '' + pokemonInfo.sprites.front_default
+                    }
+                },
+                back_default: {
+                    src: function src() {
+                        return '' + pokemonInfo.sprites.back_default
+                    }
+                },
+                front_shiny: {
+                    src: function src() {
+                        return '' + pokemonInfo.sprites.front_shiny
+                    }
+                },
+                back_shiny: {
+                    src: function src() {
+                        return '' + pokemonInfo.sprites.back_shiny
+                    }
                 }
+            }
 
-                document.querySelector('.sprite_front').setAttribute('src', pokemonInfo.sprites.front_default)
-                document.querySelector('.sprite_back').setAttribute('src', pokemonInfo.sprites.back_default)
-                document.querySelector('.sprite_shiny_front').setAttribute('src', pokemonInfo.sprites.front_shiny)
-                document.querySelector('.sprite_shiny_back').setAttribute('src', pokemonInfo.sprites.back_shiny)
+            if (pokemonInfo.types.length > 1) {
+                document.querySelector('.type1').innerHTML = "Type: " + pokemonInfo.types[0].type.name + " & "
+                document.querySelector('.type2').innerHTML = pokemonInfo.types[1].type.name
+            } else {
+                document.querySelector('.type1').innerHTML = "Type: " + pokemonInfo.types[0].type.name
+                document.querySelector('.type2').innerHTML = ""
+            }
                         
                 setTimeout(function(){
                     template.classList.add('showPokemon')
                 }, 1)
 
-                Transparency.render(template, pokeInfo)
+                Transparency.render(template, pokeInfo, sprites)
                 
             }
         }

@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({23:[function(require,module,exports) {
+})({13:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -94,7 +94,7 @@ var sections = {
 };
 
 exports.default = sections;
-},{}],9:[function(require,module,exports) {
+},{}],4:[function(require,module,exports) {
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*!
@@ -303,7 +303,7 @@ if (typeof module == 'undefined') {
 } else {
   module.exports = Routie(window, true);
 }
-},{}],29:[function(require,module,exports) {
+},{}],14:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -328,10 +328,27 @@ var order = {
                 currPokemon.parentNode.classList.add('gone');
             });
         });
+    },
+
+    makeList: function makeList(pokemon) {
+
+        pokemon.forEach(function (i) {
+            var obj = i;
+            var pokemonListItem = document.createElement('li'),
+                elPokemonLink = document.createElement('a'),
+                name = document.createTextNode(obj.name),
+                elPokemonList = document.querySelector('.pokemon-list');
+
+            pokemonListItem.appendChild(elPokemonLink);
+            elPokemonLink.setAttribute('href', '#pokemon/' + obj.name);
+            elPokemonLink.appendChild(name);
+            elPokemonList.appendChild(pokemonListItem);
+            pokemonListItem.className = 'pokemon';
+        });
     }
 };
 exports.default = order;
-},{}],19:[function(require,module,exports) {
+},{}],9:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -360,6 +377,7 @@ var obj = {},
     newObj = {}; // JS declared de variables boven aan de scope
 
 var api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo method,
+
     call: function call() {
         var request = new XMLHttpRequest();
         request.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/?limit=151', true);
@@ -370,7 +388,7 @@ var api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo me
 
                 this.data = JSON.parse(request.responseText);
                 var pokemon = this.data.results;
-                api.makeList(pokemon);
+                _order2.default.makeList(pokemon);
                 _order2.default.pokemon(pokemon);
 
                 // closure is een functie in een functie waar de parent functie nog steeds bij de child functie kan
@@ -392,41 +410,16 @@ var api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo me
         request.send();
     },
 
-    makeList: function makeList(pokemon) {
-
-        pokemon.forEach(function (i) {
-            obj = i;
-            var pokemonListItem = document.createElement('li'),
-                elPokemonLink = document.createElement('a'),
-                name = document.createTextNode(obj.name);
-
-            pokemonListItem.appendChild(elPokemonLink);
-            elPokemonLink.setAttribute('href', obj.name);
-            elPokemonLink.appendChild(name);
-            elPokemonList.appendChild(pokemonListItem);
-            pokemonListItem.className = 'pokemon';
-
-            (0, _routie2.default)(obj.name, function () {
-                console.log(window.location.hash.split('#')[1]);
-                api.openPokemonInfo(obj);
-            });
-        });
-    },
-
     openPokemonInfo: function openPokemonInfo(obj) {
-        var pokeHash = window.location.hash.split('#')[1];
         var newRequest = new XMLHttpRequest();
-        newRequest.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/' + pokeHash, true);
+        newRequest.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/' + obj, true);
 
         newRequest.onload = function () {
 
-            console.log(newRequest.status);
-
             if (newRequest.status >= 200 && newRequest.status < 400) {
 
-                console.log(newRequest.status);
-
                 this.newData = JSON.parse(newRequest.responseText);
+
                 var pokemonImages = this.newData.sprites,
                     pokemonInfo = this.newData,
                     pokeInfo = {
@@ -439,6 +432,28 @@ var api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo me
                     statsSpeed: 'Speed: ' + pokemonInfo.stats[0].base_stat,
                     statsSpDef: 'Special Defense: ' + pokemonInfo.stats[1].base_stat,
                     statsSpAtt: 'Special Attack: ' + pokemonInfo.stats[2].base_stat
+                },
+                    sprites = {
+                    front_default: {
+                        src: function src() {
+                            return '' + pokemonInfo.sprites.front_default;
+                        }
+                    },
+                    back_default: {
+                        src: function src() {
+                            return '' + pokemonInfo.sprites.back_default;
+                        }
+                    },
+                    front_shiny: {
+                        src: function src() {
+                            return '' + pokemonInfo.sprites.front_shiny;
+                        }
+                    },
+                    back_shiny: {
+                        src: function src() {
+                            return '' + pokemonInfo.sprites.back_shiny;
+                        }
+                    }
                 };
 
                 if (pokemonInfo.types.length > 1) {
@@ -449,16 +464,11 @@ var api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo me
                     document.querySelector('.type2').innerHTML = "";
                 }
 
-                document.querySelector('.sprite_front').setAttribute('src', pokemonInfo.sprites.front_default);
-                document.querySelector('.sprite_back').setAttribute('src', pokemonInfo.sprites.back_default);
-                document.querySelector('.sprite_shiny_front').setAttribute('src', pokemonInfo.sprites.front_shiny);
-                document.querySelector('.sprite_shiny_back').setAttribute('src', pokemonInfo.sprites.back_shiny);
-
                 setTimeout(function () {
                     template.classList.add('showPokemon');
                 }, 1);
 
-                Transparency.render(template, pokeInfo);
+                Transparency.render(template, pokeInfo, sprites);
             }
         };
 
@@ -477,7 +487,7 @@ var api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo me
 };
 
 exports.default = api;
-},{"./sections":23,"./routie":9,"./order":29}],20:[function(require,module,exports) {
+},{"./sections":13,"./routie":4,"./order":14}],10:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -491,6 +501,10 @@ var _sections2 = _interopRequireDefault(_sections);
 var _routie = require('./routie');
 
 var _routie2 = _interopRequireDefault(_routie);
+
+var _api = require('./api');
+
+var _api2 = _interopRequireDefault(_api);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -506,15 +520,15 @@ var routes = {
                 _sections2.default.pokemon();
             },
 
-            'pokemon/:id': function pokemonId() {
-                sectinons.loadPokemon();
+            'pokemon/:id': function pokemonId(obj) {
+                _api2.default.openPokemonInfo(obj);
             }
         });
     }
 };
 
 exports.default = routes;
-},{"./sections":23,"./routie":9}],17:[function(require,module,exports) {
+},{"./sections":13,"./routie":4,"./api":9}],7:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -540,7 +554,7 @@ var app = {
 };
 
 exports.default = app;
-},{"./api":19,"./routes":20}],10:[function(require,module,exports) {
+},{"./api":9,"./routes":10}],5:[function(require,module,exports) {
 'use strict';
 
 var _app = require('./app');
@@ -566,7 +580,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 	// Start Application
 	_app2.default.init();
 })();
-},{"./app":17}],28:[function(require,module,exports) {
+},{"./app":7}],23:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -588,7 +602,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51098' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57625' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -689,5 +703,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[28,10])
+},{}]},{},[23,5])
 //# sourceMappingURL=/dist/a37ddfbf3b40166cc41215b35ba9cf65.map

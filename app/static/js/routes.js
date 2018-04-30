@@ -1,5 +1,6 @@
 import sections from './sections'
 import routie from './routie'
+import api from './api'
 
 const routes = {
     init: function() {
@@ -13,8 +14,8 @@ const routes = {
                 sections.pokemon();
             },
 
-            'pokemon/:id': function() {
-                api.openPokemonInfo();
+            'pokemon/:id': function(obj) {
+                api.openPokemonInfo(obj)
             }
         })
     }

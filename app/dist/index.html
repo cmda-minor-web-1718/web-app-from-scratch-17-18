@@ -49,21 +49,21 @@
             <div class="template">
                 <a>X</a>
                 <div class="pokemonlist">
-                    <h1 class="name"></h1>
+                    <h2 class="name"></h2>
                     <div class="sprites">
-                        <img class="sprite_front">
-                        <img class="sprite_back">
+                        <img data-bind="front_default">
+                        <img data-bind="back_default">
                     </div>
                     <div class="sprites_shiny">
-                            <img class="sprite_shiny_front">
-                            <img class="sprite_shiny_back">
-                        </div>
+                        <img data-bind="front_shiny">
+                        <img data-bind="back_shiny">
+                    </div>
                     <div class="types">
                         <p class="type1"></p>
                         <p class="type2"></p>
                     </div>
-                    <h2 class="height"></h2>
-                    <h2 class="weight"></h2>
+                    <p class="height"></p>
+                    <p class="weight"></p>
                     <div class="stats">
                         <p class="statsHp"></p>
                         <p class="statsAtt"></p>
