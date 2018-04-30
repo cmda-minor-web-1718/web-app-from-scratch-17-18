@@ -1,5 +1,6 @@
 import sections from './sections'
 import routie from './routie'
+import order from './order'
 
 const template = document.querySelector('.template'),
     data = {},
@@ -10,75 +11,51 @@ let obj = {},
 
 const api = { // object met .call, .orderPokemon, .makeList en .openPokemonInfo method,
     call: function() {
-            const request = new XMLHttpRequest()
-            request.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/?limit=151', true)
+        const request = new XMLHttpRequest()
+        request.open('GET', 'https://www.pokeapi.co/api/v2/pokemon/?limit=151', true)
 
-            request.onload = function() {
+        request.onload = function() {
 
+            if (request.status >= 200 && request.status < 400) {	
 
-                console.log(request.status)
+                this.data = JSON.parse(request.responseText)
+                const pokemon = this.data.results
+                api.makeList(pokemon);
+                order.pokemon(pokemon)
 
-                if (request.status >= 200 && request.status < 400) {	
+                // closure is een functie in een functie waar de parent functie nog steeds bij de child functie kan
 
-                    this.data = JSON.parse(request.responseText)
-                    const pokemon = this.data.results
-                    api.makeList(pokemon);
-                    api.orderPokemon(pokemon)
+                const loading = document.querySelector('.loading')
+                loading.style.display = "none"
+            }	
+        }
+        request.onerror = function() {
+            const loading = document.querySelector('.error')
+                loading.style.display = "block" // callback voor als er wat fout gaat
+        }
 
-                    // closure is een functie in een functie waar de parent functie nog steeds bij de child functie kan
+        request.timeout = function() {
+            const loading = document.querySelector('.error')
+                loading.style.display = "block"
+        }
 
-                    const loading = document.querySelector('.loading')
-                    loading.style.display = "none"
-                }	
-            }
-            request.onerror = function() {
-                const loading = document.querySelector('.error')
-                    loading.style.display = "block" // callback voor als er wat fout gaat
-            }
-
-            request.timeout = function() {
-                const loading = document.querySelector('.error')
-                    loading.style.display = "block"
-            }
-
-            request.send()
-    },
-
-    orderPokemon: function(pokemon) {
-
-        const pokemonButton = document.querySelector('.button'),
-            listPokemon = document.querySelectorAll('.pokemon')
-        pokemonButton.addEventListener('click', function() {
-            const inputPokemon = document.querySelector('.input').value
-            console.log(inputPokemon)
-            const filteredPokemon = pokemon.filter(function(x, i) {
-                    return x.name.startsWith(inputPokemon) == false
-            })
-            console.log(filteredPokemon)
-            filteredPokemon.forEach( el => {
-
-                const currPokemon = document.querySelector( '[href="#' + el.name + '"]' )
-                currPokemon.parentNode.classList.add( 'weg' )
-
-            } )
-        })
+        request.send()
     },
 
     makeList: function(pokemon) {
 
-        pokemon.forEach(i => {
+        pokemon.forEach(function(i) {
             obj = i
             const pokemonListItem = document.createElement('li'),
                 elPokemonLink = document.createElement('a'),
                 name = document.createTextNode(obj.name)
 
             pokemonListItem.appendChild(elPokemonLink)
-            elPokemonLink.setAttribute('href', '#' + obj.name)
+            elPokemonLink.setAttribute('href', obj.name)
             elPokemonLink.appendChild(name)
             elPokemonList.appendChild(pokemonListItem)
             pokemonListItem.className = 'pokemon'
             
-            // console.log(obj.name)
             routie(obj.name, function() {
                 console.log(window.location.hash.split('#')[1])
                 api.openPokemonInfo(obj)
