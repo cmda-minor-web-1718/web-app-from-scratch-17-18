@@ -178,7 +178,6 @@ I also didn't have any error handling. I fixed this by saying that if the user c
 
 ## Actor Diagram
 ![actor][actor]
-![interaction][interaction]
 
 ## Interaction Diagram
 ![interaction][interaction]
