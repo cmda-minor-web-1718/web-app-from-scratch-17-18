@@ -9,7 +9,7 @@
   <body>
     <section id="start">
       <h1>Start</h1>
-      <p>In my first route project you can see movies and description of the chosen movie.</p>
+      <p>In my first route project you can see R rated movies and the description of the chosen movie.</p>
     </section>
     <section id="movies" class="none">
       <h1>Movie reviews</h1>
@@ -17,7 +17,9 @@
         <li><a class="display_title" data-bind="film_id"></a></li>
       </ul>
     </section>
+    <div id="loader"></div>
     <section id="moviemain" class="none">
+
       <h1 data-bind='Title'></h1>
       <img data-bind='image' alt="">
       <p data-bind='Plot'></p>

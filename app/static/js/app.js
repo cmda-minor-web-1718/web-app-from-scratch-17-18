@@ -1,6 +1,6 @@
 // import api from './api.js'
 import routes from './routes.js'
-import localStorageData from './localstorage.js'
+
 console.log('global scope');
 //create local scope
 (function() {
@@ -14,7 +14,6 @@ console.log('global scope');
     init: function() {
       console.log('app initialised')
       routes.init()
-      localStorageData.getItem()
     }
   }
 

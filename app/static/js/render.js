@@ -6,9 +6,14 @@ var sections = {
 
     let dataFilm = data.map(function(i) { // Map function thanks to Keving Wang and Oy
       return {
-        display_title: i.display_title.replace(/ /g, "_")
+        display_title: i.display_title.replace(/ /g, "_"),
+        mpaa_rating: i.mpaa_rating
       }
     });
+    console.log(dataFilm[3].display_title);
+    console.log(data)
+    dataFilm = dataFilm.filter(data => data.mpaa_rating == "R")
+    console.log(data)
 
     let movies = {
       display_title: {
@@ -26,7 +31,7 @@ var sections = {
     console.log(movies);
     var target = document.getElementById('movielist');
     Transparency.render(target, dataFilm, movies);
-    var target = document.getElementById('movieDetail');
+    // var target = document.getElementById('movieDetail');
 
   },
   toggle: function(route) {

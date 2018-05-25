@@ -1,4 +1,5 @@
 import sections from './render.js'
+import localStorageData from './localstorage.js'
 import api from './api.js'
 //handle routes & state
 var routes = {
@@ -14,6 +15,7 @@ var routes = {
         api.call('https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=3d8eafd7eaf04aa6a1493eaa050714a7').then(function(data){
           sections.render(data.results.sort((a, b) => a.display_title.localeCompare(b.display_title)))
         }).catch(function (e) {
+          localStorageData.getItem()
           console.log(e)
         })
         sections.toggle(window.location.hash)
@@ -24,14 +26,13 @@ var routes = {
         sections.toggle(name)
         document.getElementById('moviemain').classList.remove('none');
         var names = name
-
         api.call(`http://www.omdbapi.com/?t=${names}&apikey=b0b13f21`)
           .then( res => {
             console.log( res )
             var directives = {
               image: {
                 src: function() {
-                  return `${this.Poster}`
+                  return this.Poster
                 }
               }
             }

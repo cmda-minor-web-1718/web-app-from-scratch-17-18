@@ -10,6 +10,7 @@ var localStorageData = {
     }
   else{
     console.log('geen filmdata')
+    // document.body.innerHTML += "Hallo"
   }
   },
   use: function(){
