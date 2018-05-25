@@ -167,3 +167,11 @@ Actually, coming this far is what I'm most proud of. It was really difficult, bu
 
 ### What do I find most disappointing
 What I did find most disappointing was my lack of skill. I had to ask for help A LOT of times and I felt bad about it. I need to improve my own skill to keep up with what is coming.
+
+### Retry
+After receiving the feedback I started by cleaning the code. I got some imports that didn't do anything and my localstorage was activated at a wrong (and confusing) time. The localstorage must be activated if the user can't connect to the NY Times API.
+I also added a filter option, so only the movies with a 'R' rated movie will be shown. This was easily done by doing 
+
+``` dataFilm = dataFilm.filter(data => data.mpaa_rating == "R") ```
+
+I also didn't have any error handling. I fixed this by saying that if the user can't make the api call, as in no connection with the website, the user will see a message that the website isn't connected to the internet.
