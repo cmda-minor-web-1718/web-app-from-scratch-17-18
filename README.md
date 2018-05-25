@@ -175,3 +175,14 @@ I also added a filter option, so only the movies with a 'R' rated movie will be 
 ``` dataFilm = dataFilm.filter(data => data.mpaa_rating == "R") ```
 
 I also didn't have any error handling. I fixed this by saying that if the user can't make the api call, as in no connection with the website, the user will see a message that the website isn't connected to the internet.
+
+## Actor Diagram
+![actor][actor]
+![interaction][interaction]
+
+## Interaction Diagram
+![interaction][interaction]
+
+
+[actor]: actor.jpg
+[interaction]: interaction.jpg
