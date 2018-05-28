@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web app</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="static/style/style.css">
+</head>
+
+<body>
+
+    <section class="error">
+        <span>Error: </span>
+        <span data-bind="error"></span>
+    </section>
+
+    <section id="start" class="crypto">
+        <div>
+            <div class="loader active">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <a data-bind="coin_id" href="">
+                <span data-bind="rank" class="rank"></span>
+                <div class="container-name">
+                    <img data-bind="coin_image" src="" alt="">
+                    <p>
+                        <span data-bind="name_abbreviation" class="extra-info"></span>
+                        <span data-bind="name" class="name"></span>
+                    </p>
+                </div>
+                <div class="info">
+                    <p>
+                        <span class="extra-info info-price">Price USD</span>
+                        <span data-bind="price_usd" class="price"></span>
+                    </p>
+                    <p>
+                        <span class="extra-info">Change 1h</span>
+                        <span data-bind="percent_change_1h"></span>
+                    </p>
+                    <p>
+                        <span class="extra-info">Change 24h</span>
+                        <span data-bind="percent_change_24h"></span>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="detail-container">
+        <div id="detail">
+            <div class="container-name">
+                <span data-bind="rank" class="rank"></span>
+                <img data-bind="coin_image" src="" alt="">
+                <p>
+                    <span data-bind="name_abbreviation" class="extra-info"></span>
+                    <span data-bind="name" class="name"></span>
+                </p>
+            </div>
+            <div class="info">
+                <p class="price-info-container">
+                    <span class="extra-info info-price">Price USD</span>
+                    <span data-bind="price" class="price"></span>
+                    <span class="extra-info info-price">Price BTC</span>
+                    <span data-bind="price_btc" class="price btc"></span>
+                </p>
+                <p class="extra-info-container">
+                    <span class="extra-info">Market Cap</span>
+                    <span data-bind="market_cap"></span>
+                    <span class="extra-info">24h Volume</span>
+                    <span data-bind="volume"></span>
+                    <span class="extra-info">Circulating supply</span>
+                    <span data-bind="supply"></span>
+                    <span class="extra-info">Total supply</span>
+                    <span data-bind="max_supply"></span>
+                </p>
+
+                <div class="price-change-container">
+                    <p>
+                        <span class="extra-info">Change 1h</span>
+                        <span data-bind="percent_change_1h"></span>
+                    </p>
+
+                    <p>
+                        <span class="extra-info">Change 24h</span>
+                        <span data-bind="percent_change_24h"></span>
+                    </p>
+
+                    <p>
+                        <span class="extra-info">Change 7day</span>
+                        <span data-bind="percent_change_7day"></span>
+                    </p>
+                </div>
+
+                <a data-bind="coin_market_cap" class="visit" href="" target="_blank">Visit Coinmarketcap</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="static/script/routie.js"></script>
+    <script src="static/script/transparency.js"></script>
+    <script src="static/script/app.js" type="module"></script>
+</body>
+
+</html>
