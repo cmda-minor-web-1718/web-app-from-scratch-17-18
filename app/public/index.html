@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>SPA</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+
+		<div class="loader hidden">
+				<span>{</span><span>}</span>
+			  </div>
+
+	<nav>
+		<ul>
+			<li>
+				<a href="#home">Start</a>
+			</li>
+			<li>
+				<a href="#pokemon">Pokélist</a>
+			</li>
+		</ul>
+	</nav>
+
+	<section id='home'>
+		<h1>Poké-Dex</h1>
+		<p>Welkom op de SPA pagina.</p>
+	</section>
+
+	<section id="pokemon">
+		<h2>All Pokémon</h2>
+		<p>0</p>
+		<input type="text">
+		<ul id='pokemon-list'>
+			<li>
+				<a data-bind='name'></a>
+			</li>
+		</ul>
+	</section>
+
+	<section id="pokemon-detail">
+		<h2 data-bind='name'></h2>
+		<img data-bind="sprite">
+	</section>
+
+	<section id="error">
+		<p></p>
+	</section>
+	<script src="./bundle.js"></script>
+</body>
+
+</html>
