@@ -1,0 +1,971 @@
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    background: rgb(250, 250, 250);
+}
+
+header {
+    background: rgb(220, 15, 70);
+    width: 100%;
+    position: fixed;
+    top:0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 5em;
+}
+
+header h1 {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+    font-weight: ;
+    text-transform: uppercase;
+    transition: 0.4s ease;
+    letter-spacing: 2px;
+}
+
+/* ///////////////////////////// */
+/* navigation
+/* ///////////////////////////// */
+
+.navigation {
+    position: absolute;
+    bottom: 0rem;
+    border-top: 1px solid lightgrey;
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation ul  {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.navigation li {
+    width: 25%;
+    cursor: pointer;
+    font-family: 'Raleway';
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+    border-right: 1.5px solid rgba(128, 128, 128, 0.664);
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation li:hover {
+    background: crimson;
+    color: white;
+}
+
+.navigation li:hover a{
+    color: white;
+}
+
+.select {
+    background: crimson;
+}
+
+.select a {
+    color: white;
+}
+
+
+
+
+/* ///////////////////////////// */
+/*  menu
+/* ///////////////////////////// */
+
+.menu {
+    background: white;
+    width: 100%;
+    height: 15.5rem;
+    box-shadow: 0 2px 18px -2px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 4.5rem;
+    z-index: 2;
+    transition: 0.4s ease;
+    transition-delay: 0.2s;
+}
+
+
+.menu > button {
+    z-index: 2;
+    height: 5em;
+    width: 5em;
+    padding: 1.5em;
+    border-radius: 50px;
+    border: 1px solid white;
+    box-shadow: 0 0px 2px 0px rgba(0,0,0,0.7);
+    transform: rotate(180deg);
+    transition: 0.4s ease;
+    outline: none;
+    background: url('../../pictures/arrow.png');
+    background-size: 50%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    background-color: white;
+    position: absolute;
+    bottom: -26px;
+}
+
+.menu > button:hover {
+    transform: scale(1.1) rotate(180deg) ;
+    box-shadow: 0 -2px 8px -1px rgba(0,0,0,0.5);
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.menu > button:focus {
+    transform: scale(1.1) rotate(180deg) ;
+    box-shadow: 0 0px 8px 1px rgba(88, 159, 240, 0.993);
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.hide-menu {
+    position: fixed;
+    top: -8.5rem;
+    transition: 0.4s ease;
+    transition-delay: 0.2s;
+}
+
+.hide-menu .menu-item {
+    display: none;
+}
+
+.hide-menu li {
+    background: white;
+    color: black;
+}
+
+.hide-menu a {
+    color: black;
+}
+
+.hide-menu button {
+    transform: rotate(360deg);
+    box-shadow: 0 0px 2px 0px rgba(0,0,0,0.7);
+    box-sizing: border-box;
+}
+
+.hide-menu button:hover {
+    transform: rotate(360deg) rotate(0deg) scale(1.1);
+    box-shadow: 0 2px 8px -1px rgba(0,0,0,0.5);
+    transition: 0.2s ease;
+}
+
+.hide-menu button:focus {
+    transform: rotate(360deg) rotate(0deg);
+    box-shadow: 0 0px 8px 1px rgba(88, 159, 240, 0.993);
+    transition: 0.2s ease;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    display: none;
+    height: 12rem;
+    width: 100%;
+    padding: 0 2em;
+    margin-bottom: 1rem;
+}
+
+.show-menu-item {
+    display: flex;
+}
+
+/* ///////////////////////////// */
+/*  categorieën
+/* ///////////////////////////// */
+
+.category-menu {
+    width: 100%;
+}
+
+.category-menu div {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50px;
+    transition: 0.4s ease;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.419);
+}
+
+
+.category-menu ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.category-menu li {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 8rem;
+    height: 8em;
+    cursor: pointer;
+}
+
+.category-menu .clear {
+    background-color: rgb(239, 188, 252);
+}
+
+.category-menu a {
+    color: black;
+    text-decoration: none;
+}
+
+.category-menu li:hover div {
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.7);
+    transform: scale(1.2);
+}
+
+.category-menu label {
+    font-family: sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* / active category ////////////*/
+
+.active {
+    box-shadow: 0 1px 15px 0 currentColor !important;
+    transform: scale(1.2);
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ///////////////////////////// */
+/* search filter */
+/* ///////////////////////////// */
+
+.filter input {
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    background: white;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    transition: 0.4s ease;
+    border: 1px solid black;
+}
+
+.filter input:focus, .filter input:hover {
+    background: rgb(255, 255, 255);
+    outline: none;
+}
+
+.filter label {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2em;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding-right: 2rem;
+}
+
+
+/* ///////////////////////////// */
+/* categories
+/* ///////////////////////////// */
+
+.music {
+    background: url('../../pictures/music.png');
+    background-size: 60%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    color: #F7331F;
+    /* #F7331F */
+}
+
+/* .menu li:hover .music {
+    box-shadow: 0 1px 15px 0 #F7331F;
+} */
+
+
+.movie {
+    background: url('../../pictures/movie.png');
+    background-size: 60%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    color: rgb(242, 142, 11);
+    /* #20BB33 */
+}
+
+/* .menu li:hover .movie {
+    box-shadow: 0 1px 15px 0 rgb(242, 142, 11);
+} */
+
+.business {
+    background: url('../../pictures/business.png');
+    background-size: 60%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    color: #299BE4;
+    /* #299BE4 */
+}
+
+/* .menu li:hover .business {
+    box-shadow: 0 1px 15px 0 #299BE4;
+} */
+
+.web {
+    background: url('../../pictures/web.png');
+    background-size: 60%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    color: rgb(21, 225, 180);
+    /* #23F9CB */
+}
+
+/* .menu li:hover .web{
+    box-shadow: 0 1px 15px 0 #23F9CB;
+} */
+
+.design {
+    background: url('../../pictures/design.png');
+    background-size: 60%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    color: #AD39DE ;
+    /* #AD39DE */
+}
+
+/* .menu li:hover .design{
+    box-shadow: 0 1px 15px 0 #AD39DE ;
+} */
+
+.humor {
+    background: url('../../pictures/humor.png');
+    background-size: 60%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    color: #F9CE23;
+    /* #F9CE23 */
+}
+
+/* .menu li:hover .humor{
+    box-shadow: 0 1px 15px 0 #F9CE23;
+} */
+
+.other {
+    background: url('../../pictures/other.png');
+    background-size: 60%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    color: #20BB33;
+    /* #20BB33 */
+}
+
+/* .menu li:hover .other{
+    box-shadow: 0 1px 15px 0 #20BB33;
+} */
+
+.clear {
+    background: url('../../pictures/eraser.png');
+    background-size: 60%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0px !important;
+    z-index: 2;
+    color: rgb(247, 133, 247);
+    /* #20BB33 */
+}
+
+/* .menu li:hover .clear{
+    box-shadow: 0 1px 15px 0 rgb(247, 133, 247);
+} */
+
+
+/* ///////////////////////////// */
+/* video overview */
+/* ///////////////////////////// */
+
+.video-overview {
+    background: rgb(250, 250, 250);
+    padding: 11rem 5%;
+    transition: 0.4s ease;
+    transition-delay: 0.2s;
+    transform: translateY(14rem);
+}
+
+.video-overview ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.video-overview li {
+    padding: 0 1em;
+    padding-bottom: 2em;
+    width: 100%;
+    height: 100%;;
+    min-width: 20em;
+    max-width: 27em;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.video-overview a:hover, .video-overview a:focus {
+    transform: scale(1.05);
+}
+
+.video-overview div {
+    position: relative;
+    height: 13em;
+    width: 100%;
+    max-width: 30em;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
+
+    transition: 0.3s ease;
+}
+
+.video-overview div:hover {
+    box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.5)
+}
+
+.video-overview div:after {
+    content:'';
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    display:inline-block;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 10%,rgba(0,0,0,1) 100%); /* W3C */
+  }
+
+  .video-overview .play {
+    transition: 0.3s ease;
+    position: absolute;
+    background: url('http://theheartgarden.com.au/wp-content/uploads/2016/11/video-play-icon.png');
+    background-size: 30%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+  }
+
+  .video-overview div:hover .play, .video-overview a:focus .play {
+    opacity: 1;
+  }
+
+.video-overview img {
+    width:100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.video-overview a {
+    display: flex;
+    flex-direction: column-reverse;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s ease;
+    position: relative;
+}
+
+.video-overview h2 {
+    position: absolute;
+    z-index: 1;
+    padding: 1em;
+    padding-right: 2em;
+    margin: 0;
+    margin-left: 1em;
+    margin-right: 50px;
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.responsive-padding {
+    transform: translateY(0);
+}
+
+/* ///////////////////////////// */
+/* genre icon */
+/* ///////////////////////////// */
+
+.video-overview .genre {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+/* ///////////////////////////// */
+/* video player */
+/* ///////////////////////////// */
+
+.video-player {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top:0;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.4s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.video-player iframe {
+    width: 53em;
+    height: 30em;
+    opacity: 0;
+    transition: 0.5s ease;
+    transition-delay: 0.5s;
+}
+
+.video-player button {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    transition: 0.4s ease;
+}
+
+.video-player button:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 700px) {
+    .video-player iframe {
+        width: 26.5em;
+        height: 15em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .video-player iframe {
+        width: 20em;
+        height: 12em;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .video-player iframe {
+        width: 62em;
+        height: 35em;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .video-player iframe {
+        width: 71em;
+        height: 40em;
+    }
+}
+
+.show-video {
+    z-index: 4;
+    opacity: 1;
+}
+
+.show-video iframe {
+    opacity: 1;
+}
+
+
+/* ///////////////////////////// */
+/* add Video */
+/* ///////////////////////////// */
+
+.add-video {
+    position: relative;
+}
+
+.videoContainer {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.transparentGradient {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 10em;
+    background-image:linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 3%,rgba(255,255,255,0) 5%,rgba(255,255,255,1) 81%,rgba(255,255,255,1) 87%,rgba(255,255,255,1) 89%);
+    pointer-events: none;
+}
+
+.videoWrapper {
+    width: 12rem;
+    margin-right: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.videoWrapper img {
+    display: block;
+    width: 12rem;
+    height: 7rem;
+    object-fit: cover;
+}
+
+.videoWrapper h2 {
+    font-size: 0.8em;
+}
+
+.addFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2em;
+    align-self: flex-start;
+    margin-top: 1.2em;
+}
+
+.addFilter button {
+    border: 1px solid black;
+    border-radius: 0 0 5px 5px;
+    background: black;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    padding:  0.7em 1em;
+    width: 100%;
+    cursor: pointer;
+}
+
+.addFilter input {
+    height: 3rem;
+    border-radius: 5px 5px 0 0;
+    border: none;
+    text-align: center;
+    background: white;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    transition: 0.4s ease;
+    border: 1px solid black;
+}
+
+.addFilter input:focus, .addFilter input:hover {
+    background: rgb(255, 255, 255);
+    outline: none;
+}
+
+.addFilter label {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.plus {
+    transition: 0.3s ease;
+    position: absolute;
+    top: 0;
+    height: 70%;
+    width: 100%;
+    background: url('../../pictures/plus.png');
+    background-size: 20%, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+}
+
+.videoWrapper a {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.videoWrapper a:focus {
+    outline: none;
+}
+
+.videoWrapper a:hover .plus, .videoWrapper a:focus .plus {
+    background-color: #ffffffb7;
+    opacity: 1;
+    
+}
+
+/* ///////////////////////////// */
+/* add Video category */
+/* ///////////////////////////// */
+
+.addCategory {
+    transition: 0.2s ease;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.596);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+}
+
+.showAddCategory {
+    opacity: 1;
+    display: flex;
+}
+
+.addCategoryContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 3em;
+}
+
+.addCategory ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.addCategory > div div {
+    background-color: white;
+}
+
+.addCategoryContainer {
+    width: 100%;
+}
+
+.addCategoryContainer div {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50px;
+    transition: 0.4s ease;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.419);
+}
+
+
+.addCategoryContainer ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease;
+    padding: 0;
+    margin: 0;
+    width: 35em;
+}
+
+.addCategoryContainer li {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 8rem;
+    height: 7.5rem;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+.addCategoryContainer a {
+    color: black;
+    text-decoration: none;
+}
+
+.addCategoryContainer li:hover div {
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.7);
+    transform: scale(1.2);
+}
+
+.addCategoryContainer label {
+    font-family: sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.addCategory h1 {
+    position: absolute;
+    top: 0;
+    
+    font-weight: 900;
+    font-family: "Raleway", sans-serif;
+    font-size: 2.8em;
+}
+
+.selectedVideo {
+    display: flex;
+    
+    width: 25em;
+    height: 14em;
+    position: relative;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
+}
+
+.selectedVideo h2 {
+    font-size: 1em;
+    font-weight: 300;
+    position: absolute;
+    bottom: 0;
+    margin-left: 1em;
+    color: white;
+    z-index: 2;
+    padding-right: 3em;
+}
+
+.selectedVideo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.selectedVideo .genre {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.selectedVideo div:after {
+    content:'';
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    display:inline-block;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 10%,rgba(0,0,0,1) 100%); /* W3C */
+  }
+
+.buttons {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1.5em;
+}
+
+.buttons button {
+    height: 3em;
+    width: 6em;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.4em;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    /* padding: 1em 2em; */
+    box-shadow: 0px 0px 15px 0px rgba(90, 87, 87, 0.493);
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    transform: scale(1.1);
+}
+
+.buttons button:nth-child(2) {
+    background: rgb(230, 48, 48);
+    margin-left: 0.5em;
+}
+.buttons button:nth-child(1) {
+    background: rgb(25, 192, 25);
+    margin-right: 0.5em;
+}
+
+
+
+
+
+
+
+
+
+
+

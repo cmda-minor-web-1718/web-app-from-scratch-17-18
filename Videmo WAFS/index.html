@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video's</title>
+    <script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,900" rel="stylesheet">
+    <link rel="stylesheet" href="static/CSS/style.css">
+    <!-- <script   src="https://code.jquery.com/jquery-3.3.1.slim.js"   integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="   crossorigin="anonymous"></script> -->
+</head>
+<body>
+    <header>
+        <h1>Videmo</h1>
+    </header>  
+    <section class="menu">
+        <nav class="navigation">
+            <ul>
+                <li class="1 select"><a href="#categories">Categories</a></li>
+                <li class="2"><a href="#who-is-watching">Who's Watching</a></li>
+                <li class="3"><a href="#add-video">Add Video</a></li>
+                <li class="4"><a href="#search">Search</a></li>
+            </ul>
+        </nav>
+        <button></button>
+        <div class="menu-item category-menu show-menu-item">
+            <ul>
+                <li><a href="#"><label>music</label></a><div class="genre music"></div></li>
+                <li><a href="#"><label>movie</label></a><div class="genre movie"></div></li>
+                <li><a href="#"><label>business</label></a><div class="genre business"></div></li>
+                <li><a href="#"><label>web</label></a><div class="genre web"></div></li>
+                <li><a href="#"><label>design</label></a><div class="genre design"></div></li>
+                <li><a href="#"><label>humor</label></a><div class="genre humor"></div></li>
+                <li><a href="#"><label>other</label></a><div class="genre other"></div></li>
+                <li id="clear" ><a href="#"><label>clear filter(s)</label></a><div class="genre clear"></div></li>
+            </ul>
+        </div>
+        <div class="menu-item filter">
+            <label>Search:</label>
+            <input id=filterInput type="text">
+        </div>
+        <div class="menu-item add-video">
+            <div class="addFilter">
+                <label>Search:</label>
+                <input id=searchInput type="text">
+                <button>Search</button>
+            </div>
+            <div class="videoContainer">
+                
+            </div>
+            <div class="transparentGradient"></div>
+        </div>
+        <div class="menu-item who-watching">
+            <h2>under construction</h2>
+        </div>      
+    </section> 
+    
+    <section class="video-overview">
+        <ul id="videoList">
+            <li class="module"><a href="#"><i class="genre music"></i><h2>Drake - Gods Plan</h2><div><i class="play"></i><img src="pictures/godsplan.jpg" alt="Gods Plan" data-youtube="xpVfcZ0ZcFM"></div></a></li>
+            <li class="module"><a href="#"><i class="genre music"></i><h2>Kendrick Lamar - Kings Dead</h2><div><i class="play"></i><img src="pictures/kingsdead.jpg" alt="king is Dead" data-youtube="VwAnsAUYnw4"></div></a></li>
+            <li class="module"><a href="#"><i class="genre web"></i><h2>A Framework Author's Case Against Frameworks</h2><div><i class="play"></i><img src="pictures/framework-author-case.jpg" alt="Framework Author's case against frameworks" data-youtube="VvOsegaN9Wk"></div></a></li>
+            <li class="module"><a href="#"><i class="genre web"></i><h2>Material Design</h2><div><i class="play"></i><img src="pictures/materialdesign.jpg" alt="Material Design" data-youtube="rrT6v5sOwJg"></div></a></li>
+            <li class="module"><a href="#"><i class="genre business"></i><h2>#1 Entrepeneur tip</h2><div><i class="play"></i><img src="https://i.ytimg.com/vi/5Xv4DPii4i8/maxresdefault.jpg" alt="#1 entrepeneur tip" data-youtube="flFRQEzRfS0"></div></a></li>
+            <li class="module"><a href="#"><i class="genre other"></i><h2>Hitchcock's Definition of Hapiness</h2><div><i class="play"></i><img src="http://horror.wpengine.netdna-cdn.com/wp-content/uploads/2017/10/alfred-hitchcock-height-weight-body-measurements-1024x672.jpg" data-youtube="14dOICbwSIs"></div></a></li>
+            <li class="module"><a href="#"><i class="genre business"></i><h2>Steve Jobs - Product people VS Marketing people</h2><div><i class="play"></i><img src="https://cdn-images-1.medium.com/max/2000/0*euVJNE8ntEERGlCu.jpg" data-youtube="_1rXqD6M614"></div></a></li>
+            <li class="module"><a href="#"><i class="genre humor"></i><h2>Elon Are u Okay?</h2><div><i class="play"></i><img src="https://cdn.vox-cdn.com/thumbor/3dHdRHd0kEaWeifEQLox72HRUew=/0x0:3000x2000/1200x800/filters:focal(1436x15:1916x495)/cdn.vox-cdn.com/uploads/chorus_image/image/58545631/roundtable_elon_musk_flamethrower_apimages_ringer.0.jpg" data-youtube="a8uyilHatBA"></div></a></li>
+            <li class="module"><a href="#"><i class="genre humor"></i><h2>The Perfect Mutant</h2><div><i class="play"></i><img src="https://i.redd.it/0uuaxvy5l9oz.png" data-youtube="0Qd7cT3gyrI"></div></a></li>  
+            <li class="module"><a href="#"><i class="genre design"></i><h2>Color Psychology in Web Design</h2><div><i class="play"></i><img src="http://tomko.info/wp-content/uploads/2018/03/color-pictures-20-things-you-didnt-know-about-color-discovermagazine.jpg" data-youtube="r9gYdD-REI0"></div></a></li>  
+            <li class="module"><a href="#"><i class="genre movie"></i><h2>Saitama VS Genos</h2><div><i class="play"></i><img src="https://images.wallpapersden.com/image/download/saitama-vs-genos_61436_1920x1080.jpg" data-youtube="km2OPUctni4"></div></a></li>  
+            <li class="module"><a href="#"><i class="genre other"></i><h2>New Zealand</h2><div><i class="play"></i><img src="https://wallup.net/wp-content/uploads/2016/01/98450-filter-nature.jpg" data-youtube="5SgyFaBS7WI"></div></a></li>  
+            <li class="module"><a href="#"><i class="genre music"></i><h2>Faberyayo X Tom Trago feat. Willem de Bruin - Lekker Niet</h2><div><i class="play"></i><img src="https://i.ytimg.com/vi/KkvTfn_kQgU/maxresdefault.jpg" data-youtube="KkvTfn_kQgU"></div></a></li>  
+            <li class="module"><a href="#"><i class="genre design"></i><h2>Graphic Design in 2018</h2><div><i class="play"></i><img src="pictures/graphicdesign.png" data-youtube="dcc1VyGvaYk"></div></a></li>
+            <li class="module"><a href="#"><i class="genre music"></i><h2>Kendrick Lamar - Humble</h2><div><i class="play"></i><img src="https://www.funx.nl/images/2017/04/06_89_02-kendrick-humble-2017-screenshot-billboard-embed.jpg" data-youtube="tvTRZJ-4EyI"></div></a></li> 
+            <li class="module"><a href="#"><i class="genre movie"></i><h2>Master Roshi VS Ganos</h2><div><i class="play"></i><img src="https://i.ytimg.com/vi/Wi0Wnu71lB4/maxresdefault.jpg" data-youtube="JZoBHW3e-Lc"></div></a></li>
+            <li class="module"><a href="#"><i class="genre movie"></i><h2>Vegeta VS Toppo</h2><div><i class="play"></i><img src="https://i.ytimg.com/vi/8MVxKJQPpPQ/maxresdefault.jpg" data-youtube="Hp-0fcTJRFI" frameborder="0"></div></a></li>   
+            <li class="module"><a href="#"><i class="genre design"></i><h2>10 rules to help you rule type</h2><div><i class="play"></i><img src="https://cdn-images-1.medium.com/max/1598/1*aom6VwAyjh03cOY15_x4nA.png" data-youtube="QrNi9FmdlxY"></div></a></li>   
+            <li class="module"><a href="#"><i class="genre web"></i><h2>An introduction to machine learning</h2><div><i class="play"></i><img src="https://community-cdn-digitalocean-com.global.ssl.fastly.net/assets/tutorials/images/large/introduction-to-machine-learning_social.png?1510178550" data-youtube="MR633gYfrg8"></div></a></li>   
+            <li class="module"><a href="#"><i class="genre movie"></i><h2>The Most Beautiful Shots In Movie History</h2><div><i class="play"></i><img src="https://i1.wp.com/api.onbeing.org/wp-content/uploads/2016/11/LightsCheekwood.jpg?fit=1600%2C1000&ssl=1" data-youtube="xBasQG_6p40"></div></a></li>
+            <li class="module"><a href="#"><i class="genre music"></i><h2>Khalid - American Teen</h2><div><i class="play"></i><img src="https://media.vanityfair.com/photos/5a0b38231efc1566564c965a/master/pass/t-MAG-1217-Hot-Tracks-Khalid.jpg" data-youtube="0NChtZCDCsY?"></div></a></li>
+            <li class="module"><a href="#"><i class="genre music"></i><h2>Sam Smith - Burning (Live From The Hackney Round Chapel</h2><div><i class="play"></i><img src="https://images.graphlr.io/tF511D7g10kxKbl18H4CZZ7E5XSpjvWQ6hXM/s3-top-40/6b550889-40ab-4cdb-a515-abf6de898144?w=970&h=545&q=75" data-youtube="Df-Wo48P-M8"></div></a></li> 
+            <li class="module"><a href="#"><i class="genre humor"></i><h2>True Hollywood stories - Prince</h2><div><i class="play"></i><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOr75ePUaItRtI7SfebrcDkfesZ2L91CVryI1lShbl2WxNxZMR" data-youtube="ff8LEx9Mw54"></div></a></li>               
+        </ul>
+    </section>
+
+    <section class="video-player">
+        <button>Close</button>
+        <iframe width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </section>
+
+    <section class="addCategory">
+        <div class="addCategoryContainer">
+            <h1>Choose a category for your video</h2>
+            <section class="selectedVideo">
+                <img src="https://cdn-images-1.medium.com/max/1598/1*aom6VwAyjh03cOY15_x4nA.png">
+                <h2>video title</h2>
+                <i class="genre music"></i>
+                <div></div>
+            </section>
+            <ul>
+                <li><a href="#"><label>music</label></a><div class="genre music active"></div></li>
+                <li><a href="#"><label>movie</label></a><div class="genre movie"></div></li>
+                <li><a href="#"><label>business</label></a><div class="genre business"></div></li>
+                <li><a href="#"><label>web</label></a><div class="genre web"></div></li>
+                <li><a href="#"><label>design</label></a><div class="genre design"></div></li>
+                <li><a href="#"><label>humor</label></a><div class="genre humor"></div></li>
+                <li><a href="#"><label>other</label></a><div class="genre other"></div></li>
+            </ul>
+            <section class="buttons">
+                <button class="add">add</button>
+                <button class="cancel">cancel</button>
+            </section>
+        </div>
+    </section>
+    <script src="static/Javascript/routie.js"></script>
+    <script src="static/Javascript/script.js"></script>
+</body>
+</html>
