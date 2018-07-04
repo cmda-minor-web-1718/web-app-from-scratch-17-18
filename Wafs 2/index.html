@@ -18,6 +18,9 @@
 				<li>
 					<a href="#add-video">add video's</a>
 				</li>
+				<li>
+					<a href="#categories">categories</a>
+				</li>
 			</ul>
 		</nav>
 	</section>
@@ -25,7 +28,7 @@
 	<section id="startscreen" class="show"> 
 		<div id="template">
 			<div class="container">
-				<img class="tumbnail">
+				<img class="thumbnail">
 				<h2 class="title"></h2>
 				<a class="videoId"></a>
 			</div>	
@@ -40,7 +43,7 @@
 		</div>
 		<div id="videoContainer">
 			<div class="individualContainer">
-				<img class="tumbnail">
+				<img class="thumbnail">
 				<h2 class="title"></h2>
 				<a class="videoId"></a>
 			</div>
@@ -59,31 +62,31 @@
 						<fieldset>
 							<legend>Choose category</legend>
 		
-							<input type="radio" name="rating-1" id="rating-0">
-							<label for="rating-0">
-								<img>
+							<input type="radio" name="category" id="music">
+							<label for="music">
+								music
 							</label>
 		
-							<input type="radio" name="rating-1" id="rating-1">
-							<label for="rating-1">
-								<img>
+							<input type="radio" name="category" id="webdev">
+							<label for="webdev">
+								webdev
 							</label>
 		
 		
-							<input type="radio" name="rating-1" id="rating-2">
-							<label for="rating-2">
-								<img>
+							<input type="radio" name="category" id="funny">
+							<label for="funny">
+								funny
 							</label>
 		
-							<input type="radio" name="rating-1" id="rating-3">
-							<label for="rating-3">
-								<img>
+							<input type="radio" name="category" id="other" checked>
+							<label for="other">
+								other
 							</label>
 						</fieldset>
 					</div>
 					<div class="buttonContainer">
 						<button class="cancel"><a href="#add-video">cancel</a></button>
-						<button class="addVideo">add video</button>
+						<button class="addVideo"><a href="#add-video">add video</a></button>
 					</div>
 				</div>
 			</div> 

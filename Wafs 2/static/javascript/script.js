@@ -14,9 +14,9 @@
 						'add-video': function() {
 							detail.classList.remove('showDetail')
 							addCategory.classList.remove('showPage')
+							document.querySelector('body').classList.remove('overflow')
 							detail.classList.remove('showDetail')
 							addVideo.classList.add('show')
-							addYourVideos.searchVideos()
 						},
 						'videos': function() {
 							detail.classList.remove('showDetail')
@@ -38,49 +38,95 @@
 					});
 				}
 			}
+		categories.choose()
+		addYourVideos.searchVideos()
 		routes.init()
 		api.fetch()
 		}
 	}
 
 	const api = {
-		videos: [],
+		videos: [
+			{
+				title: "A Framework Author's Case Against Frameworks",
+				id: 'VvOsegaN9Wk',
+				thumbnail: 'https://i.ytimg.com/vi/k7n2xnOiWI8/hqdefault.jpg',
+				category: 'webdev'
+			},
+			{
+				title: 'Material Design',
+				id: 'rrT6v5sOwJg',
+				thumbnail: 'https://i.ytimg.com/vi/rrT6v5sOwJg/hqdefault.jpg',
+				category: 'webdev'
+			},
+			{
+				title: 'The Most Beautiful Shots In Movie History',
+				id: 'xBasQG_6p40',
+				thumbnail: 'https://i1.wp.com/api.onbeing.org/wp-content/uploads/2016/11/LightsCheekwood.jpg?fit=1600%2C1000&ssl=1',
+				category: 'movie'
+			},
+			{
+				title: 'How I Take Portraits - Canon 1DX Mark 2',
+				id: '_AuGO05RRN8',
+				thumbnail: 'https://i.ytimg.com/vi/_AuGO05RRN8/hqdefault.jpg',
+				category: 'other'
+			},
+			{
+				title: 'Khalid - Young Dumb & Broke (Official Video)',
+				id: 'IPfJnp1guPc',
+				thumbnail: 'https://i.ytimg.com/vi/IPfJnp1guPc/hqdefault.jpg',
+				category: 'music'
+			},
+			{
+				title: 'Saitama vs Genos Fight | One Punch Man (60FPS)',
+				id: 'km2OPUctni4',
+				thumbnail: 'https://i.ytimg.com/vi/km2OPUctni4/hqdefault.jpg',
+				category: 'other'
+			},
+			{
+				title: 'De Jeugd van Tegenwoordig - Glasbak',
+				id: 'I36tGmo-zKU',
+				thumbnail: 'https://i.ytimg.com/vi/I36tGmo-zKU/hqdefault.jpg',
+				category: 'music'
+			},
+			{
+				title: '10 rules to help you rule type',
+				id: 'QrNi9FmdlxY',
+				thumbnail: 'https://cdn-images-1.medium.com/max/1598/1*aom6VwAyjh03cOY15_x4nA.png',
+				category: 'webdev'
+			},
+			{
+				title: 'True Hollywood stories - Prince',
+				id: 'QrNi9FmdlxY',
+				thumbnail: 'https://i.ytimg.com/vi/ff8LEx9Mw54/hqdefault.jpg',
+				category: 'ff8LEx9Mw54'
+			},
+			{
+				title: 'Faberyayo X Tom Trago feat. Willem de Bruin - Lekker Niet',
+				id: 'KkvTfn_kQgU',
+				thumbnail: 'https://i.ytimg.com/vi/KkvTfn_kQgU/maxresdefault.jpg',
+				category: 'music'
+			},
+			{
+				title: '10 rules to help you rule type',
+				id: 'QrNi9FmdlxY',
+				thumbnail: 'https://cdn-images-1.medium.com/max/1598/1*aom6VwAyjh03cOY15_x4nA.png',
+				category: 'webdev'
+			},
+			{
+				title: '10 rules to help you rule type',
+				id: 'QrNi9FmdlxY',
+				thumbnail: 'https://cdn-images-1.medium.com/max/1598/1*aom6VwAyjh03cOY15_x4nA.png',
+				category: 'webdev'
+			},
+		],
 		searchYoutube: [],
 		detailTitle: {},
 		addVideo: {},
 		fetch: function() {
 
-			let searchVideo = "samuel elkins"
-			let queryurl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchVideo}&type=video&maxResults=20&key=AIzaSyAFLVY9mCE3hBE8niWn6wcNs01nWCZcn1s`;
-
-			fetch(queryurl)
-			.then(response => response.json()) 
-
-			.then( function(data) {
-
-				let videofetch = data.items
-
-				let videoObject = videofetch.map(function (video) {
-					return {title: video.snippet.title, id: video.id.videoId, thumbnail: video.snippet.thumbnails.high.url} 
-				})
-	
-				api.videos = videoObject
-	
-				// videofetch.forEach( function(video) {
-				// 	let videoTitle = video.snippet.title
-				// 	let videoTumbnail = video.snippet.thumbnails.high.url
-				// 	let videoId = video.id.videoId
-				// 	let videoArray = {}
-				// 	videoArray.title = videoTitle
-				// 	videoArray.tumbnail = videoTumbnail
-				// 	videoArray.id = videoId
-				// 	api.videos.push(videoArray)
-				// })
-				console.log(api.videos)	
-
 				template.overview()
 	
-			})		
 		}
 	}
 
@@ -88,7 +134,7 @@
 		overview: function(id) {
 
 			let directives = {
-				tumbnail: {
+				thumbnail: {
 					"data-src": function() {
 					return this.thumbnail
 					}
@@ -131,6 +177,21 @@
 
 			console.log(api.detailTitle)
 			Transparency.render(document.getElementById('detailTemplate'), api.detailTitle)
+
+			const closeVideo = document.querySelector('#detail button a')
+
+			console.log(closeVideo)
+			document.onkeydown = function (e) { 
+				if (e.keyCode === 27) {
+					closeVideo.click()
+				}   
+			} 
+
+			const detail = document.getElementById('detail')
+
+			detail.addEventListener('click', function() {
+				closeVideo.click()
+			})
 		},
 
 		searchYoutube: function() {
@@ -138,7 +199,7 @@
 			console.log(api.searchYoutube)
 
 			let directives = {
-				tumbnail: {
+				thumbnail: {
 					src: function() {
 					return this.thumbnail
 					}
@@ -159,7 +220,7 @@
 					}
 				}
 			}
-
+			
 			Transparency.render(document.getElementById('videoContainer'), api.searchYoutube, directives)
 			document.getElementById('videoContainer').style.display = "flex"
 
@@ -167,15 +228,15 @@
 			youtubeVideos.forEach( function(video) {
 				video.addEventListener('click', function() {
 					let videoTitle = this.title
-					let videoTumbnail = this.thumbnail
+					let videoThumbnail = this.thumbnail
 					let videoId = this.id
 					let videoArray = {}
 					videoArray.title = videoTitle
-					videoArray.thumbnail = videoTumbnail
+					videoArray.thumbnail = videoThumbnail
 					videoArray.id = videoId
 					api.addVideo = videoArray
 					console.log(api.addVideo)
-					categories.choose()
+					template.videoPreview()
 				})
 			})
 		},
@@ -189,6 +250,11 @@
 				}
 			}
 			Transparency.render(document.getElementById('addVideoContainer'), api.addVideo, directives);
+		},
+
+		createVideo: function() {
+			api.videos.unshift(api.addVideo)
+			template.overview()
 		}
 	}
 
@@ -196,13 +262,15 @@
 		searchVideos: function() {
 
 			const searchGO = document.querySelector('.searchContainer button')
+			console.log(searchGO)
 
 			searchInput.addEventListener("keyup", function (event) {
-				event.preventDefault();
+				console.log('nani?')
+				event.preventDefault()
 				if (event.keyCode === 13) {
 					fetchVideos()
 				}
-			});
+			})
 
 			searchGO.addEventListener('click', fetchVideos);
 			function fetchVideos() {
@@ -231,10 +299,11 @@
 	const categories = {
 		choose: function() {
 
-			template.videoPreview()
-
-
-
+			document.querySelector('.addVideo').addEventListener('click', function() {
+				let category = document.querySelector('input[name="category"]:checked').id
+				api.addVideo.category = category
+				template.createVideo()
+			})
 		}
 	}
 
