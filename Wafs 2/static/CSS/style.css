@@ -1,48 +1,478 @@
+img {
+	opacity: 1;
+	transition: opacity 0.3s;
+	transition-delay: 0.3s;
+  }
+  
+  img[data-src] {
+	opacity: 0;
+  }
+
 body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
 	font-weight: 200;
-	letter-spacing: 1.4px;
-	height: 100vh;
+	letter-spacing: 1.4px;	
 }
+
+/* navigation */
 
 #navigation {
 	position: sticky;
+	position: -webkit-sticky;
 	top: 0;
 	z-index: 10;
-	background: purple;
+	background: rgba(128, 0, 128, 0.885);
+	width: 100%;
+	height: 10rem;
+	height: 5vh;
+}
+
+#navigation nav {
+	height: 100%;
 }
 
 #navigation ul {
+	padding: 0;
 	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	list-style: none;
-	padding: 1rem;
+	height: 100%;
 }
 
 #navigation li {
+	list-style: none;
 	margin: 0 1rem;
-	height: 100%;
+	height: 70%;
+	padding: 0 1rem;
+	border-radius: 8px;
+	border: 1px solid white;
+	padding: 0;
+	width: 8rem;
+	transition: 0.2s ease;
+}
+
+#navigation li:hover {
+	background: white;
+}
+
+#navigation li:hover a {
+	color: purple;
 }
 
 #navigation a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
 	text-decoration: none;
+	font-weight: 500;
 	color: white;
 	height: 100%;
+	width: 100%;
+	transition: 0.2s ease;
 }
 
-.page {
+/* video list */
+
+#startscreen {
+	margin-top: 1.2rem;
+	/* padding: 0 2%; */
+}
+
+#template {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.container {
+	height: 13rem;
+	max-width: 25rem;
+	margin: 1.5%;
+	position: relative;
+	box-shadow: 0 0 35px -3px rgba(0, 0, 0, 0.304);
+	transition: 0.3s ease;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.container {
+	animation-name: pop-in;
+	animation-duration: .5s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+
+.container:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to top,black 15%,transparent 100%);
+	border-radius: 8px;
+}
+
+
+.container:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 65px 0 rgba(0, 0, 0, 0.204);
+}
+
+.container:before {
+	content: '';
+	position: absolute;
+	z-index: 2;
+	background: url(https://www.bornmusiconline.com/wp-content/uploads/2017/06/play-button.png);
+	background-repeat: no-repeat;
+	background-size: 7rem;
+	background-position: center;
+	opacity: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	transition: 0.4s ease;
+}
+
+.container:hover:before {
+	opacity: 0.5;
+}
+
+.container h2 {
+	position: absolute;
+	bottom: 0;
+	left: 5%;
+	max-width: 20rem;
+	font-size: 1rem;
+	color: white;
+	z-index: 1;
+	font-weight: 300;
+}
+
+.container img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.container a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 3;
+}
+
+/* detail page*/
+
+.detailPage {
 	justify-content: center;
 	align-items: center;
 	height: 100%;
 	width: 100%;
+	display: none;  
+}
+
+#detail button {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background: transparent;
+	border: 1px solid white;
+	transition: 0.2s ease;
+	height: 4rem;
+	width: 8rem;
+	padding: 0;
+	margin: 0;
+	border-radius: 8px;
+}
+
+#detail a {
+	color: white;
+	text-decoration: none;
+	font-size: 2rem;
+	letter-spacing: 2px;
+	transition: 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+#detail h2 {
+	position: absolute;
+	top: 1rem;
+	left: 2rem;
+	color: white;
+	padding-right: 10rem;
+}
+
+#detail button:hover {
+	background: white;
+}
+
+#detail button:hover a {
+	color: black
+}
+
+#detail iframe {
+	animation-name: pop-in;
+	animation-duration: 2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+
+/* menu items */
+
+.menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+	position: fixed;
+	height: 14rem;
+	top: 3rem;
+	top: 5vh;
+	width: 100%;
+	background: white;
+	transform: translateY(-14rem);
+	z-index: 3;
+	box-shadow: 0 0 10px 0 rgba(163, 158, 158, 0.679);
+	transition: 0.3s ease;
+}
+
+.menu-item {
+
+}
+
+.menu > button {
+	background: white;
+	position: absolute;
+	bottom: -2rem;
+	height: 4rem;
+	width: 4rem;
+	border-radius: 100px;
+	display: none;
+	border: 2px solid rgb(152, 30, 152);
+	padding: 0;
+	margin: 0;
+	box-shadow: 0 3px 5px -2px rgba(133, 129, 129, 0.603);
+	transition: 0.2s ease;
+}
+
+.menu > button:hover{
+	background: rgb(152, 30, 152);
+}
+
+.menu > button:hover a {
+	color: white;
+}
+.menu a {
+	text-decoration: none;
+	color: purple;
+	font-size: 1rem;
+	height: 3.75rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.2s ease;
+}
+
+.show > button {
+	display: flex;
+}
+
+.searchContainer {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.searchContainer button {
+    border: 1px solid black;
+    border-radius: 0 0 5px 5px;
+    background: black;
+    color: white;
+    font-size: 1rem;
+    padding:  0 1em;
+	width: 100%;
+	height: 2.5rem;
+	cursor: pointer;
+	text-align: center;
+}
+
+.searchContainer input {
+    height: 2rem;
+    border-radius: 5px 5px 0 0;
+    border: none;
+    text-align: center;
+    background: white;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    transition: 0.4s ease;
+    border: 1px solid black;
+}
+
+#videoContainer {
+	display: flex;
+    flex-direction: row;
+	overflow-x: auto;
+	overflow-y: hidden;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	display: none;
+	height: 10rem;
+}
+
+.individualContainer {
+	margin-right: 1rem;
+	position: relative;
+}
+.individualContainer a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.individualContainer img {
+	height: 6rem;
+	width: 11rem;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.individualContainer h2 {
+	font-size: 0.8rem;
+	letter-spacing: 1.1px;
+	text-overflow: unset;
+	white-space: wrap;
+	overflow: hidden; 
+	max-height: 2rem;
+}
+
+
+/* animations */
+
+@keyframes pop-in {
+	0% { opacity: 0; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+  }
+
+  @keyframes rotate
+	{
+	from
+		{
+		transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		}
+	to
+		{
+		transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		}
+	}
+
+.loadingSpinner {
 	display: none;
 }
 
+.showSpinner {
+	display: block;
+}
+
+.spinner1 {
+	height: 5rem;
+	width: 5rem;
+	border: 5px solid rgb(120, 183, 243);
+	border-top-color: transparent;
+	border-right-color: transparent;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto; 
+	border-radius: 100px;
+	animation: rotate 2.0s infinite linear;
+	
+	margin: auto;
+	z-index: -2;
+	
+}
+
+.spinner2 {
+	height: 5rem;
+	width: 5rem;
+	border: 5px solid rgb(17, 122, 220);
+	border-right-color: transparent;
+	border-top-color: transparent;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto; 
+	border-radius: 100px;
+	animation: rotate 1.0s infinite linear;
+	
+	margin: auto;
+	z-index: -1;
+}
+
+
+/* show hide classes */
+
 .show {
+	visibility: visible;
 	display: flex;
+	transform: translateY(0);
+}
+
+.showDetail {
+	display: flex;
+	background: rgba(0, 0, 0, 0.8);
+	position: fixed;
+	z-index: 11;
+	top: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.overflow {
+	overflow-y: hidden;
+}
+
+/* media queries */
+
+@media screen and (min-width: 1200px) {
+	iframe {
+		width: 60rem;
+		height: 33.7rem;
+		;
+	}
 }
