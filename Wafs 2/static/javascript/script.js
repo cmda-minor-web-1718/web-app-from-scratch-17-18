@@ -8,18 +8,26 @@
 					const addVideo = document.getElementById('add-video')
 					const detail = document.getElementById('detail')
 					const iframe = document.querySelector('#detail iframe')
+					const addCategory = document.getElementById('add-category')
 
 					routie({
 						'add-video': function() {
+							detail.classList.remove('showDetail')
+							addCategory.classList.remove('showPage')
 							detail.classList.remove('showDetail')
 							addVideo.classList.add('show')
 							addYourVideos.searchVideos()
 						},
 						'videos': function() {
 							detail.classList.remove('showDetail')
+							addCategory.classList.remove('showPage')
 							addVideo.classList.remove('show')
 							document.querySelector('body').classList.remove('overflow')
 							iframe.src = ''
+						},
+						'add-category': function() {
+							addCategory.classList.add('showPage')
+							document.querySelector('body').classList.add('overflow')
 						}
 					});
 
@@ -39,6 +47,7 @@
 		videos: [],
 		searchYoutube: [],
 		detailTitle: {},
+		addVideo: {},
 		fetch: function() {
 
 			let searchVideo = "samuel elkins"
@@ -137,17 +146,49 @@
 
 				videoId: {
 					href: function() {
-						return "#videos/" + this.id
+						return "#add-category" 
 					},
 					title: function() {
 						return this.title
+					},
+					id: function() {
+						return this.id
+					},
+					thumbnail: function() {
+						return this.thumbnail
 					}
 				}
 			}
 
 			Transparency.render(document.getElementById('videoContainer'), api.searchYoutube, directives)
 			document.getElementById('videoContainer').style.display = "flex"
-			
+
+			let youtubeVideos = document.querySelectorAll('.individualContainer a')
+			youtubeVideos.forEach( function(video) {
+				video.addEventListener('click', function() {
+					let videoTitle = this.title
+					let videoTumbnail = this.thumbnail
+					let videoId = this.id
+					let videoArray = {}
+					videoArray.title = videoTitle
+					videoArray.thumbnail = videoTumbnail
+					videoArray.id = videoId
+					api.addVideo = videoArray
+					console.log(api.addVideo)
+					categories.choose()
+				})
+			})
+		},
+
+		videoPreview: function() {
+			let directives = {
+				thumbnail: {
+					"src": function() {
+					return this.thumbnail
+					}
+				}
+			}
+			Transparency.render(document.getElementById('addVideoContainer'), api.addVideo, directives);
 		}
 	}
 
@@ -184,6 +225,16 @@
 					template.searchYoutube()
 				})
 			}
+		}
+	}
+
+	const categories = {
+		choose: function() {
+
+			template.videoPreview()
+
+
+
 		}
 	}
 
