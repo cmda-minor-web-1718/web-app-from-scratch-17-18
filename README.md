@@ -7,6 +7,8 @@ During this course I made a webapp that lets you fetch videos from youtube and a
 
 Rendering of the video's was done through Transparency.js. This is a minimal templating script that pairs objects to html elements, and automatically renders multiple elements. 
 
+[click here to open the webapp](https://nielsfs.github.io/wafs/app)
+
 ## visual flow
 
 ![](https://lh3.googleusercontent.com/V8k6Wrvk80-nr98kFznEAQpGUglvKbqqMGfLiji1hj7eYEwla7ZsIo2K59Hm4vcviWG3WCtaSvyXnILlkJWnrHGne-o8htHif42v_u6vHl5ue_zHgiIF73ZNgRz-g4s-B-KoHfJwIVTd3gQSvBEUi_A7GR6tL7KB7k8qI19rnbsfw6cnTErxNnxRY9G-l6qNiy9ioxKKIxUGv_uSgtxc7gKVtR5DOLGAd02a8uXI7p0UOWpXo29Md8updoTEnPK5fK5pFXGA38j-RsKrJb4_zpcMLSwJ_etmyLExsBdgJ_ps2bEcn2gR97bobUHUdlZyET-c-6NliKYNnxet38COwID3GaDrwuKDyEyqjN3AItOnfNnHRpJUzbCHJYS70Rk8rQWzwilBjFiRfEzFTY1hKQkn3j9MYHSzjS6nbdQyrHX8A2hn66_ECOXi6_FyeaT13dfC-HAHfryAYxYTTk4SkaIrVqU6PhHirZ_xlirTX_N18lkjGjAw7_DIkkcEFn7YiuGtZJ7HIE2nVMRZ2dNEswVvYhAx7LCtjBeasGRUU3QSLqF3ByKwP-XOh2xmDSt5QM4rixCdJV4unr1CQJnHjGyldf5PuovY3aDv_AY=w2302-h1600-no)
