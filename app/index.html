@@ -2,38 +2,144 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="static/css/styles.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-	</head>
-
-<body>	
-	<div class="background">
-		<section class="section1">
-			<nav>
-				<ul>
-					<li><a href="#" class="bestpractices" >VIEW BEST PRACTICES</a></li>
-				</ul>
-			</nav>
-		</section>
-			
-		<section class="section2">
-			<h2></h2>
-		</section>
-
-		<section class="section3 hidden">
-			<ul>
-				<li><h4>Don't use global variables/objects</h4></li>
-				<li><h4>Declare variables at top of scope</h4></li>
-				<li><h4>Use short clear meaningful names (English)</h4></li>
-				<li><h4>camelCase your code if(code != Constructor || CONSTANTS)</h4></li>
-				<li><h4>Place external scripts at the bottom of the page</h4></li>
-				<li><h4>Indent your code</h4></li>
-				<li><h4>Always code comment</h4></li>
-			</ul>
-		</section>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="static/CSS/style.css">
+	<title>Videmo 2</title>
+</head>
+<body>
+	<div class="loadingSpinner">
+		<div class="spinner1"></div>
+		<div class="spinner2"></div>
 	</div>
+	<section id="navigation">
+		<nav>
+			<ul>
+				<li>
+					<a href="#add-video">add video's</a>
+				</li>
+				<li>
+					<a href="#categories">categories</a>
+				</li>
+			</ul>
+		</nav>
+	</section>
 
-<script src="static/js/script.js"></script>
+	<section id="startscreen" class="show"> 
+		<div id="template">
+			<div class="container">
+				<img class="thumbnail">
+				<h2 class="title"></h2>
+				<a class="videoId"></a>
+			</div>	
+		</div> 
+	</section>
+
+	<section id="categories" class="menu">
+		<fieldset>
+			<legend>Choose category</legend>
+
+			<input type="checkbox" name="filterCategory" id="music">
+			<label for="music">
+				music
+			</label>
+
+			<input type="checkbox" name="filteCategory" id="webdev">
+			<label for="webdev">
+				webdev
+			</label>
+
+
+			<input type="checkbox" name="filterCategory" id="funny">
+			<label for="funny">
+				funny
+			</label>
+
+			<input type="checkbox" name="filterCategory" id="other">
+			<label for="other">
+				other
+			</label>
+		</fieldset>
+		
+		<button><a href="#videos">Close</a></button>
+	</section>
+
+	<section id="add-video" class="menu">
+		<div class="searchContainer">
+			<label>Search:</label>
+			<input id=searchInput type="text">
+			<button>Search</button>
+		</div>
+		<div id="videoContainer">
+			<div class="individualContainer">
+				<img class="thumbnail">
+				<h2 class="title"></h2>
+				<a class="videoId"></a>
+			</div>
+		</div>
+		<button><a href="#videos">Close</a></button>
+	</section>
+
+	<section id="add-category"> 
+			<div id="templateAddVideo">
+				<div class="mainContainer">
+					<div id="addVideoContainer">
+						<img class="thumbnail">
+						<h2 class="title"></h2>
+					</div>	
+					<div class="categories">
+						<fieldset>
+							<legend>Choose category</legend>
+		
+							<input type="radio" name="category" id="music">
+							<label for="music">
+								music
+							</label>
+		
+							<input type="radio" name="category" id="webdev">
+							<label for="webdev">
+								webdev
+							</label>
+		
+		
+							<input type="radio" name="category" id="funny">
+							<label for="funny">
+								funny
+							</label>
+		
+							<input type="radio" name="category" id="other" checked>
+							<label for="other">
+								other
+							</label>
+						</fieldset>
+					</div>
+					<div class="buttonContainer">
+						<button class="cancel"><a href="#add-video">cancel</a></button>
+						<button class="addVideo"><a href="#add-video">add video</a></button>
+					</div>
+				</div>
+			</div> 
+		</section>
+
+	<section id="detail" class="detailPage">
+		<div id="detailTemplate">
+			<h2 class="title"></h2>
+		</div>
+		<button><a href="#videos">Close</a></button>
+		<iframe width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</section>
+
+	<script src="static/Javascript/routie.js"></script>
+	<script src="static/javascript/transparency.min.js"></script>
+
+	<script src="static/Javascript/filterCategory.js"></script>
+	<script src="static/Javascript/addCategory.js"></script>
+	<script src="static/Javascript/addYourVideos.js"></script>
+	<script src="static/Javascript/template.js"></script>
+	<script src="static/Javascript/storage.js"></script>
+	<script src="static/Javascript/routes.js"></script>
+	<script src="static/Javascript/script.js"></script>
 </body>
 </html>
+
+
