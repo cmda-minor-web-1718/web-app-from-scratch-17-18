@@ -601,7 +601,7 @@ fieldset input:focus + label svg {
 
 .showDetail {
 	display: flex;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.9);
 	position: fixed;
 	z-index: 11;
 	top: 0;

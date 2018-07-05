@@ -9,6 +9,7 @@
 					const detail = document.getElementById('detail')
 					const iframe = document.querySelector('#detail iframe')
 					const addCategory = document.getElementById('add-category')
+					const categories = document.getElementById('categories')
 
 					routie({
 						'add-video': function() {
@@ -16,11 +17,21 @@
 							addCategory.classList.remove('showPage')
 							document.querySelector('body').classList.remove('overflow')
 							detail.classList.remove('showDetail')
+							categories.classList.remove('show')
 							addVideo.classList.add('show')
+						},
+						'categories': function() {
+							detail.classList.remove('showDetail')
+							addCategory.classList.remove('showPage')
+							document.querySelector('body').classList.remove('overflow')
+							addVideo.classList.remove('show')
+							detail.classList.remove('showDetail')
+							categories.classList.add('show')
 						},
 						'videos': function() {
 							detail.classList.remove('showDetail')
 							addCategory.classList.remove('showPage')
+							categories.classList.remove('show')
 							addVideo.classList.remove('show')
 							document.querySelector('body').classList.remove('overflow')
 							iframe.src = ''
@@ -38,14 +49,14 @@
 					});
 				}
 			}
-		categories.choose()
+		addCategory.choose()
 		addYourVideos.searchVideos()
 		routes.init()
-		api.fetch()
+		storage.render()
 		}
 	}
 
-	const api = {
+	const storage = {
 		videos: [
 			{
 				title: "A Framework Author's Case Against Frameworks",
@@ -123,7 +134,7 @@
 		searchYoutube: [],
 		detailTitle: {},
 		addVideo: {},
-		fetch: function() {
+		render: function() {
 
 				template.overview()
 	
@@ -150,7 +161,7 @@
 				}
 			}
 
-			Transparency.render(document.getElementById('template'), api.videos, directives);
+			Transparency.render(document.getElementById('template'), storage.videos, directives);
 
 			const loadingSpinner = document.querySelector('.loadingSpinner') // spinner while loading
 			loadingSpinner.classList.add('showSpinner');
@@ -166,7 +177,7 @@
 			let selectedVideo = document.querySelectorAll('.videoId')
 			selectedVideo.forEach( function(video) {
 				video.addEventListener('click', function() {
-					api.detailTitle.title = this.title
+					storage.detailTitle.title = this.title
 				})
 			})
 		},
@@ -175,8 +186,8 @@
 			const iframe = document.querySelector('#detail iframe')
 			iframe.src = `https://www.youtube.com/embed/${detailVideoId}?rel=0&amp;showinfo=0&amp;autoplay=1`
 
-			console.log(api.detailTitle)
-			Transparency.render(document.getElementById('detailTemplate'), api.detailTitle)
+			console.log(storage.detailTitle)
+			Transparency.render(document.getElementById('detailTemplate'), storage.detailTitle)
 
 			const closeVideo = document.querySelector('#detail button a')
 
@@ -196,7 +207,7 @@
 
 		searchYoutube: function() {
 			console.log('gelukt?')
-			console.log(api.searchYoutube)
+			console.log(storage.searchYoutube)
 
 			let directives = {
 				thumbnail: {
@@ -221,7 +232,7 @@
 				}
 			}
 			
-			Transparency.render(document.getElementById('videoContainer'), api.searchYoutube, directives)
+			Transparency.render(document.getElementById('videoContainer'), storage.searchYoutube, directives)
 			document.getElementById('videoContainer').style.display = "flex"
 
 			let youtubeVideos = document.querySelectorAll('.individualContainer a')
@@ -234,8 +245,8 @@
 					videoArray.title = videoTitle
 					videoArray.thumbnail = videoThumbnail
 					videoArray.id = videoId
-					api.addVideo = videoArray
-					console.log(api.addVideo)
+					storage.addVideo = videoArray
+					console.log(storage.addVideo)
 					template.videoPreview()
 				})
 			})
@@ -249,11 +260,11 @@
 					}
 				}
 			}
-			Transparency.render(document.getElementById('addVideoContainer'), api.addVideo, directives);
+			Transparency.render(document.getElementById('addVideoContainer'), storage.addVideo, directives);
 		},
 
 		createVideo: function() {
-			api.videos.unshift(api.addVideo)
+			storage.videos.unshift(storage.addVideo)
 			template.overview()
 		}
 	}
@@ -288,7 +299,7 @@
 						return {title: video.snippet.title, id: video.id.videoId, thumbnail: video.snippet.thumbnails.high.url} 
 					})
 
-					api.searchYoutube = videoObject
+					storage.searchYoutube = videoObject
 
 					template.searchYoutube()
 				})
@@ -296,12 +307,12 @@
 		}
 	}
 
-	const categories = {
+	const addCategory = {
 		choose: function() {
 
 			document.querySelector('.addVideo').addEventListener('click', function() {
 				let category = document.querySelector('input[name="category"]:checked').id
-				api.addVideo.category = category
+				storage.addVideo.category = category
 				template.createVideo()
 			})
 		}
