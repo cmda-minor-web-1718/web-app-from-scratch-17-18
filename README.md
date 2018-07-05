@@ -1,6 +1,20 @@
 # wafs
 The course repo for 'Web App From Scratch'
 
+##
+
+During this course I made a webapp that lets you fetch videos from youtube and add them to the webapp overview. I have used routie for navigating through the various sections and detail view. Navigation is triggered on hashchange.
+
+Rendering of the video's was done through Transparency.js. This is a minimal templating script that pairs objects to html elements, and automatically renders multiple elements. 
+
+## visual flow
+
+![](https://lh3.googleusercontent.com/V8k6Wrvk80-nr98kFznEAQpGUglvKbqqMGfLiji1hj7eYEwla7ZsIo2K59Hm4vcviWG3WCtaSvyXnILlkJWnrHGne-o8htHif42v_u6vHl5ue_zHgiIF73ZNgRz-g4s-B-KoHfJwIVTd3gQSvBEUi_A7GR6tL7KB7k8qI19rnbsfw6cnTErxNnxRY9G-l6qNiy9ioxKKIxUGv_uSgtxc7gKVtR5DOLGAd02a8uXI7p0UOWpXo29Md8updoTEnPK5fK5pFXGA38j-RsKrJb4_zpcMLSwJ_etmyLExsBdgJ_ps2bEcn2gR97bobUHUdlZyET-c-6NliKYNnxet38COwID3GaDrwuKDyEyqjN3AItOnfNnHRpJUzbCHJYS70Rk8rQWzwilBjFiRfEzFTY1hKQkn3j9MYHSzjS6nbdQyrHX8A2hn66_ECOXi6_FyeaT13dfC-HAHfryAYxYTTk4SkaIrVqU6PhHirZ_xlirTX_N18lkjGjAw7_DIkkcEFn7YiuGtZJ7HIE2nVMRZ2dNEswVvYhAx7LCtjBeasGRUU3QSLqF3ByKwP-XOh2xmDSt5QM4rixCdJV4unr1CQJnHjGyldf5PuovY3aDv_AY=w2302-h1600-no)
+
+## interaction diagram
+
+![](https://lh3.googleusercontent.com/g_SBlWuoUvSTGiMU4g2MmWCIdX5cRUJMbK5FyJK0_WoIIVZzOX2MQxTu8JC1z9J_OfYGm4j0woYQhjUFyJ4BnEX_kdPvZPvgPxL-ydlAJ8TE2URDVBcM9DQGrE6Ffu5Kw3kA42SwLK9ydS3hICp6Mm9xu3iAmVy_M6TWmY6l-D7jgXBJsMDR50FtdBPL0uRyv1taofcQ29eSsHAVljNUEjmHsFJ-TvqZaNEZT5Jp8_QPNLVpQ_K6EMC4vZbGMiFBU6UUUP9HzEaaIAGNJE2zEctOtw71JO75XBezzzoQ_mBsp5U-JKnknRpwOpfmbIA4LQO3t5vbVWNsighqI45jTXU0swHOE-Vf7jQ3Uz2SKkj_sZEtHB3qE5RB3FkBCZemNJRHZiG7l41O0z_OqexmaNcjIt1bPQTbPyNdH-foAJwOp0rLwaZU9ftyrN2x28u_j4dPswLFi7ypBZ1y04u_V2rinQwsi6BDIWY4gzAW7JBLUN93NxzUkl78e-ftQ93jV2CtDTrjGIPbBO81XUPxcQ93dO_-KjzOtjUQgYpCQnSS5H7Ihf-L-3P36TAoFMi6-5jX8g5TowcA4i1D61nwEf2Lbl27pz5_tSmMhhE=w2504-h1606-no)
+
 ## Advantages and disadvantages of JavaScript libraries/frameworks
 ...
 
