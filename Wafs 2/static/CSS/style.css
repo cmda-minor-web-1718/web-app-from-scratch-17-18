@@ -587,6 +587,10 @@ fieldset input:focus + label svg {
 	transform: scale(1.8); 
 }
 
+#categories fieldset {
+	margin-top: 0;
+}
+
 /* show hide classes */
 
 .show {
