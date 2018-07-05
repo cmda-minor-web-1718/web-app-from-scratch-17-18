@@ -9,6 +9,25 @@ Rendering of the video's was done through Transparency.js. This is a minimal tem
 
 [click here to open the webapp](https://nielsfs.github.io/wafs/app)
 
+### The webapp lets you:
+
+- view videos in pop up detail window
+- lets you find videos on youtube and add them to your playlist
+- lets you add categories to the videos you have added, to later categorize them.
+
+### wishlist:
+
+- Currently the feature to sort videos by category is almost implemented
+- Your video list can be stored in local storage. Later on, a database.
+- You are able to create your own playlists.
+
+### Best practices that i followed:
+
+- I used object oriented programming. The javascript contains several different components that all tie in together.
+- I have incorporated ES6 variables, forEach, the map() method and others to make the code more readable.
+- I tried to render as much elements as possible through transparency
+- I kept an eye on pleasurable UI and UX
+
 ## visual flow
 
 ![](https://lh3.googleusercontent.com/V8k6Wrvk80-nr98kFznEAQpGUglvKbqqMGfLiji1hj7eYEwla7ZsIo2K59Hm4vcviWG3WCtaSvyXnILlkJWnrHGne-o8htHif42v_u6vHl5ue_zHgiIF73ZNgRz-g4s-B-KoHfJwIVTd3gQSvBEUi_A7GR6tL7KB7k8qI19rnbsfw6cnTErxNnxRY9G-l6qNiy9ioxKKIxUGv_uSgtxc7gKVtR5DOLGAd02a8uXI7p0UOWpXo29Md8updoTEnPK5fK5pFXGA38j-RsKrJb4_zpcMLSwJ_etmyLExsBdgJ_ps2bEcn2gR97bobUHUdlZyET-c-6NliKYNnxet38COwID3GaDrwuKDyEyqjN3AItOnfNnHRpJUzbCHJYS70Rk8rQWzwilBjFiRfEzFTY1hKQkn3j9MYHSzjS6nbdQyrHX8A2hn66_ECOXi6_FyeaT13dfC-HAHfryAYxYTTk4SkaIrVqU6PhHirZ_xlirTX_N18lkjGjAw7_DIkkcEFn7YiuGtZJ7HIE2nVMRZ2dNEswVvYhAx7LCtjBeasGRUU3QSLqF3ByKwP-XOh2xmDSt5QM4rixCdJV4unr1CQJnHjGyldf5PuovY3aDv_AY=w2302-h1600-no)
