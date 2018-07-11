@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web app</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="static/style/style.css">
+</head>
+
+<body>
+
+    <section id="start" class="crypto">
+        <div>
+            <a data-bind="coin_id" href="">
+                <span data-bind="rank" class="rank"></span>
+                <div class="container-name">
+                    <img data-bind="coin_image" src="" alt="">
+                    <p>
+                        <span data-bind="name_abbreviation" class="extra-info"></span>
+                        <span data-bind="name" class="name"></span>
+                    </p>
+                </div>
+                <div class="info">
+                    <p>
+                        <span class="extra-info info-price">Price USD</span>
+                        <span data-bind="price" class="price"></span>
+                    </p>
+                    <p>
+                        <span class="extra-info">Change 1h</span>
+                        <span data-bind="percent_change_1h"></span>
+                    </p>
+                    <p>
+                        <span class="extra-info">Change 24h</span>
+                        <span data-bind="percent_change_24h"></span>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="detail-container">
+        <div id="detail">
+                <!--onclick is used only for testing (will be removed) later-->
+                <button type="button">Exit</button>
+                
+                <span data-bind="rank" class="rank"></span>
+                <div class="container-name">
+                    <img data-bind="coin_image" src="" alt="">
+                    <p>
+                        <span data-bind="name_abbreviation" class="extra-info"></span>
+                        <span data-bind="name" class="name"></span>
+                    </p>
+                </div>
+                <div class="info">
+                    <p>
+                        <span class="extra-info info-price">Price USD</span>
+                        <span data-bind="price" class="price"></span>
+                        <span data-bind="price_btc"></span>
+                    </p>
+                    <p>
+                        <span class="extra-info">Change 1h</span>
+                        <span data-bind="percent_change_1h"></span>
+                        <span data-bind="precent_change_24"></span>
+                    </p>
+                    <p>
+                        <span class="extra-info">Change 24h</span>
+                        <span data-bind="percent_change_24h"></span>
+                    </p>
+                    <p>
+                        <span data-bind="market_cap"></span>
+                        <span data-bind="supply"></span>
+                        <span data-bind="volume"></span>
+                    </p>
+
+                </div>
+        </div>
+    </section>
+
+    <script src="static/script/routie.js"></script>
+    <script src="static/script/transparency.js"></script>
+    <script src="static/script/app.js"></script>
+</body>
+
+</html>
