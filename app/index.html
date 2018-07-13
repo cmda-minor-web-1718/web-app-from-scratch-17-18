@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="static/css/styles.css" rel="stylesheet">
+	<title>Document</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#home">Home</a></li>
+				<li><a href="#songs">Top songs</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section id="home">
+			<div>
+				<img src="static/img/logo.png" alt="book"/>
+				<h1>Find your top tracks</h1>
+			</div>
+		</section>
+
+		<section id="songs">
+				<h1>Mijn meest beluisterde songs</h1>
+				<form action="" method="post">
+					<section>
+						<label for="user">Username</label>
+						<input type="text" id="username" name="username" placeholder="Your last.fm username..">
+					</section>
+					<section>
+						<label for="user">Period</label>
+						<select>
+							<option value="overall">Overall</option>
+							<option value="12month">1 year</option>
+							<option value="3month">3 months</option>
+							<option value="1month">1 month</option>
+							<option value="7day">7 days</option>
+						</select>
+				</section>
+					<button>Check</button>
+			</form>
+
+			<ul>
+				<p class="message"></p>
+
+				<li><a class="id" href="">
+
+						<img class="image" src=""/>
+						<section>
+							<p class="track"></p>
+							<p class="artist"></p>
+							<p>Playcount: <span class="playcount"></p></p>
+						</section>
+				</a></li>
+			</ul>
+		</section>
+		<section id="songDetail">
+			<h1 class="name"></h1>
+			<div class="artist">
+				 <h1 class="name"></h1>
+			 </div>
+
+			<div class="album">
+				 <p>Album: <span class="title"></span></p>
+				 <img class="image" src=""/>
+			 </div>
+		 	</div>
+
+			<div class="toptags">
+				<div class="tag">
+					<p class="name"></p>
+			 	</div>
+			 </div>
+
+		</section>
+
+	</main>
+	<!-- Application modules -->
+	<script src="static/js/transparency.min.js"></script>
+	<script src="static/js/routie.js"></script>
+
+	<!-- vendor libraries -->
+	<script src="static/js/config.js"></script>
+	<script src="static/js/app.js" type="module"></script>
+	<!-- <script src="static/js/musicbrainz.js"></script> -->
+
+
+</body>
+</html>
