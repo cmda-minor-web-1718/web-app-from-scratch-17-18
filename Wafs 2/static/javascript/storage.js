@@ -15,7 +15,7 @@ const storage = {
 		{
 			title: 'The Most Beautiful Shots In Movie History',
 			id: 'xBasQG_6p40',
-			thumbnail: 'https://i1.wp.com/api.onbeing.org/wp-content/uploads/2016/11/LightsCheekwood.jpg?fit=1600%2C1000&ssl=1',
+			thumbnail: 'https://static.twentytwowords.com/wp-content/uploads/featured20godfather.jpg',
 			category: 'movie'
 		},
 		{
